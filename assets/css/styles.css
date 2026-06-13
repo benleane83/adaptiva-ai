@@ -47,7 +47,7 @@ body.page {
 body.page--home {
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.44) 42%, rgba(8, 27, 58, 0.08) 100%),
-    url("https://github.com/user-attachments/assets/84795997-c4fc-4e9e-b1bc-f6ebe2c2385b");
+    url("../images/adaptiva-gradient.png");
 }
 
 body.page--inner {
