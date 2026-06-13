@@ -53,7 +53,7 @@ body.page--home {
 body.page--inner {
   background-image:
     linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.72) 38%, rgba(255, 255, 255, 0.88) 100%),
-    url("https://github.com/user-attachments/assets/f6682b19-4994-4eba-b342-43c42406fe35");
+    url("../images/adaptiva-inner-background.png");
 }
 
 img {
