@@ -382,6 +382,14 @@ p {
   color: var(--color-navy-strong);
 }
 
+.hero-divider {
+  border: none;
+  height: 3px;
+  width: 3rem;
+  background: var(--color-gold);
+  margin: 1.5rem 0;
+}
+
 .text-gold {
   color: var(--color-gold);
 }
