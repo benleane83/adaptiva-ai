@@ -38,8 +38,22 @@ body {
   line-height: 1.65;
 }
 
+body.page {
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
 body.page--home {
-  background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 25%, #f4f7fb 100%);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.44) 42%, rgba(8, 27, 58, 0.08) 100%),
+    url("../images/adaptiva-gradient.png");
+}
+
+body.page--inner {
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.72) 38%, rgba(255, 255, 255, 0.88) 100%),
+    url("../images/adaptiva-inner-background.png");
 }
 
 img {
