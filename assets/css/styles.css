@@ -670,7 +670,7 @@ p {
 .solution-showcase-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.6rem;
+  gap: clamp(0.9rem, 1.8vw, 1.2rem);
 }
 
 .solution-image-tile {
@@ -678,13 +678,13 @@ p {
 
   position: relative;
   display: flex;
-  min-height: clamp(38rem, 52vw, 44rem);
+  min-height: clamp(25rem, 34vw, 31rem);
   align-items: flex-start;
   overflow: hidden;
-  padding: clamp(1.4rem, 2.4vw, 1.9rem);
+  padding: clamp(1rem, 1.8vw, 1.45rem);
   border: 1px solid var(--color-border);
   border-radius: calc(var(--radius-lg) + 0.35rem);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.24) 68%, rgba(255, 255, 255, 0.06) 100%),
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 46%, rgba(8, 27, 58, 0.12) 100%),
     var(--tile-bg);
   background-position: center, right bottom;
   background-size: cover;
@@ -712,15 +712,20 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 32%),
-    linear-gradient(180deg, rgba(8, 27, 58, 0.06) 0%, rgba(8, 27, 58, 0.01) 65%);
+    linear-gradient(135deg, rgba(212, 175, 106, 0.16) 0%, rgba(212, 175, 106, 0) 34%),
+    linear-gradient(180deg, rgba(8, 27, 58, 0.04) 0%, rgba(8, 27, 58, 0.18) 100%);
   content: "";
 }
 
 .solution-image-tile__content {
   position: relative;
   z-index: 1;
-  max-width: min(100%, 27rem);
+  max-width: min(100%, 24rem);
+  padding: clamp(0.95rem, 1.5vw, 1.2rem);
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 26px rgba(13, 27, 42, 0.08);
 }
 
 .solution-image-tile h3,
@@ -729,26 +734,26 @@ p {
 }
 
 .solution-image-tile h3 {
-  margin-bottom: 0.65rem;
-  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
+  margin-bottom: 0.45rem;
+  font-size: clamp(1.32rem, 1.8vw, 1.72rem);
 }
 
 .solution-image-tile p {
-  margin-bottom: 0.8rem;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  margin-bottom: 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.42;
 }
 
 .solution-image-tile ul {
   margin: 0;
-  padding-left: 1.2rem;
+  padding-left: 1.05rem;
 }
 
 .solution-image-tile li {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.24rem;
   color: var(--color-navy);
-  font-size: 0.93rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.36;
 }
 
 .solution-image-tile li:last-child {
