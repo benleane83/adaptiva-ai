@@ -938,7 +938,7 @@ p {
   border-radius: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  font-size: 1.95rem;
+  font-size: 1.5rem;
   font-family: var(--font-heading);
   background: var(--color-contact-button);
 }
