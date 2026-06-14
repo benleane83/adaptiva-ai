@@ -12,6 +12,14 @@
   --color-gold: #d4af6a;
   --color-gold-dark: #c99a4b;
   --color-gold-soft: rgba(212, 175, 106, 0.16);
+  --color-contact-panel-bg: #f1f1f2;
+  --color-contact-control-bg: #f6f6f7;
+  --color-contact-border: #d7d9de;
+  --color-contact-icon: #aeb2ba;
+  --color-contact-divider: #cfd2d8;
+  --color-contact-placeholder: #7c818a;
+  --color-contact-button: #be9b4a;
+  --color-contact-button-hover: #ac8b3e;
   --shadow-soft: 0 18px 48px rgba(13, 27, 42, 0.08);
   --shadow-card: 0 12px 30px rgba(13, 27, 42, 0.07);
   --radius-lg: 1.5rem;
@@ -847,9 +855,9 @@ p {
 
 .contact-callout {
   padding: clamp(1.5rem, 3vw, 2rem);
-  border: 1px solid #d7d9de;
+  border: 1px solid var(--color-contact-border);
   border-radius: 1.6rem;
-  background: #f1f1f2;
+  background: var(--color-contact-panel-bg);
   box-shadow: 0 20px 40px rgba(8, 27, 58, 0.08);
 }
 
@@ -863,9 +871,9 @@ p {
   gap: 0.95rem;
   min-height: 4rem;
   padding: 0.9rem 1.1rem;
-  border: 1px solid #d7d9de;
+  border: 1px solid var(--color-contact-border);
   border-radius: 0.72rem;
-  background: #f6f6f7;
+  background: var(--color-contact-control-bg);
   box-shadow: 0 3px 9px rgba(8, 27, 58, 0.04);
 }
 
@@ -873,7 +881,7 @@ p {
   width: 1.35rem;
   height: 1.35rem;
   flex-shrink: 0;
-  color: #aeb2ba;
+  color: var(--color-contact-icon);
 }
 
 .contact-form__icon svg {
@@ -889,7 +897,7 @@ p {
 .contact-form__divider {
   width: 1px;
   min-height: 1.75rem;
-  background: #cfd2d8;
+  background: var(--color-contact-divider);
   flex-shrink: 0;
 }
 
@@ -908,7 +916,7 @@ p {
 
 .contact-form__field input::placeholder,
 .contact-form__field textarea::placeholder {
-  color: #7c818a;
+  color: var(--color-contact-placeholder);
   opacity: 1;
 }
 
@@ -932,11 +940,11 @@ p {
   letter-spacing: 0.03em;
   font-size: 1.95rem;
   font-family: var(--font-heading);
-  background: #be9b4a;
+  background: var(--color-contact-button);
 }
 
 .contact-form__submit:hover {
-  background: #ac8b3e;
+  background: var(--color-contact-button-hover);
 }
 
 .contact-form__fallback {
