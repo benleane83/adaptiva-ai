@@ -504,27 +504,16 @@ p {
   padding: clamp(2rem, 4vw, 3rem);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.96) 0%,
-    rgba(238, 242, 247, 0.92) 62%,
-    rgba(183, 196, 216, 0.3) 100%
-  );
-  box-shadow: var(--shadow-soft);
-}
-
-.page-hero__panel::after {
-  content: "";
-  position: absolute;
-  right: -10rem;
-  bottom: -11rem;
-  width: 27rem;
-  height: 27rem;
   background:
-    radial-gradient(circle at 35% 35%, rgba(212, 175, 106, 0.26) 0%, rgba(212, 175, 106, 0) 48%),
-    radial-gradient(circle at 60% 55%, rgba(52, 89, 131, 0.2) 0%, rgba(52, 89, 131, 0) 65%);
-  opacity: 0.9;
-  pointer-events: none;
+    radial-gradient(circle at 112% 118%, rgba(212, 175, 106, 0.24) 0%, rgba(212, 175, 106, 0) 42%),
+    radial-gradient(circle at 96% 104%, rgba(52, 89, 131, 0.18) 0%, rgba(52, 89, 131, 0) 48%),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(238, 242, 247, 0.92) 62%,
+      rgba(183, 196, 216, 0.3) 100%
+    );
+  box-shadow: var(--shadow-soft);
 }
 
 .section {
@@ -680,8 +669,8 @@ p {
 
 .solution-showcase-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
 }
 
 .solution-image-tile {
@@ -689,49 +678,81 @@ p {
 
   position: relative;
   display: flex;
-  min-height: 16rem;
-  aspect-ratio: 1 / 1;
+  min-height: clamp(38rem, 52vw, 44rem);
   align-items: flex-start;
   overflow: hidden;
-  padding: clamp(1.15rem, 2vw, 1.55rem);
-  border: 1px solid rgba(255, 255, 255, 0.48);
+  padding: clamp(1.4rem, 2.4vw, 1.9rem);
+  border: 1px solid var(--color-border);
   border-radius: calc(var(--radius-lg) + 0.35rem);
-  background-image: linear-gradient(180deg, rgba(8, 27, 58, 0.82) 0%, rgba(8, 27, 58, 0.34) 42%, rgba(8, 27, 58, 0.08) 100%),
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.72) 42%, rgba(255, 255, 255, 0.24) 68%, rgba(255, 255, 255, 0.06) 100%),
     var(--tile-bg);
-  background-position: center;
+  background-position: center, right bottom;
   background-size: cover;
   box-shadow: var(--shadow-soft);
-  color: #ffffff;
+  color: var(--color-navy);
+}
+
+.solution-image-tile--readiness {
+  --tile-bg: url("../images/ai-readiness-maturity-bg.png");
+}
+
+.solution-image-tile--strategy {
+  --tile-bg: url("../images/ai-strategy-advisory-bg.png");
+}
+
+.solution-image-tile--skilling {
+  --tile-bg: url("../images/ai-skilling-enablement-bg.png");
+}
+
+.solution-image-tile--change {
+  --tile-bg: url("../images/ai-change-management-bg.png");
 }
 
 .solution-image-tile::before {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 36%),
-    linear-gradient(180deg, rgba(8, 27, 58, 0.22) 0%, rgba(8, 27, 58, 0.06) 62%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 32%),
+    linear-gradient(180deg, rgba(8, 27, 58, 0.06) 0%, rgba(8, 27, 58, 0.01) 65%);
   content: "";
 }
 
 .solution-image-tile__content {
   position: relative;
   z-index: 1;
+  max-width: min(100%, 27rem);
 }
 
 .solution-image-tile h3,
 .solution-image-tile p {
-  color: #ffffff;
+  color: var(--color-navy);
 }
 
 .solution-image-tile h3 {
   margin-bottom: 0.65rem;
-  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
 }
 
 .solution-image-tile p {
-  margin-bottom: 0;
-  font-size: 0.92rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.solution-image-tile ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.solution-image-tile li {
+  margin: 0 0 0.35rem;
+  color: var(--color-navy);
+  font-size: 0.93rem;
   line-height: 1.45;
+}
+
+.solution-image-tile li:last-child {
+  margin-bottom: 0;
 }
 
 .pill-list {
