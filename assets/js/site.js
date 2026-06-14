@@ -51,3 +51,41 @@ if (contactEmailForm) {
     window.location.href = `mailto:info@adaptivaai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
+
+const videoTrigger = document.querySelector("[data-video-trigger]");
+const videoDialog = document.querySelector("[data-video-dialog]");
+const videoPlayer = document.querySelector("[data-video-player]");
+const videoCloseButtons = document.querySelectorAll("[data-video-close]");
+
+if (videoTrigger && videoDialog && videoPlayer) {
+  const closeVideoDialog = () => {
+    if (videoDialog.open) {
+      videoDialog.close();
+    }
+  };
+
+  videoTrigger.addEventListener("click", (event) => {
+    if (typeof videoDialog.showModal !== "function") {
+      return;
+    }
+
+    event.preventDefault();
+    videoDialog.showModal();
+    document.body.classList.add("video-dialog-open");
+  });
+
+  videoCloseButtons.forEach((button) => {
+    button.addEventListener("click", closeVideoDialog);
+  });
+
+  videoDialog.addEventListener("click", (event) => {
+    if (event.target === videoDialog) {
+      closeVideoDialog();
+    }
+  });
+
+  videoDialog.addEventListener("close", () => {
+    videoPlayer.pause();
+    document.body.classList.remove("video-dialog-open");
+  });
+}
