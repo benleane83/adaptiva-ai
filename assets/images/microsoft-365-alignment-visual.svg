@@ -15,9 +15,9 @@
   <text x="544" y="312" fill="#2E2A2B" font-family="Montserrat, Arial, sans-serif" font-size="58" font-weight="700" text-anchor="middle">Everything aligned with</text>
   <text x="544" y="370" fill="#2E2A2B" font-family="Montserrat, Arial, sans-serif" font-size="58" font-weight="700" text-anchor="middle">Microsoft 365</text>
 
-  <text x="544" y="446" fill="#08223D" font-family="Montserrat, Arial, sans-serif" font-size="41" text-anchor="middle">Our services are fully aligned with Microsoft 365 E3, E5, and E7, helping</text>
-  <text x="544" y="493" fill="#08223D" font-family="Montserrat, Arial, sans-serif" font-size="41" text-anchor="middle">organisations unlock the full value of their Microsoft ecosystem and accelerate end-</text>
-  <text x="544" y="540" fill="#08223D" font-family="Montserrat, Arial, sans-serif" font-size="41" text-anchor="middle">to-end AI transformation into true Frontier Firms.</text>
+  <text x="544" y="438" fill="#08223D" font-family="Montserrat, Arial, sans-serif" font-size="30" text-anchor="middle">Our services align with Microsoft 365 E3, E5, and E7, helping</text>
+  <text x="544" y="484" fill="#08223D" font-family="Montserrat, Arial, sans-serif" font-size="30" text-anchor="middle">organisations unlock the full value of their Microsoft ecosystem</text>
+  <text x="544" y="530" fill="#08223D" font-family="Montserrat, Arial, sans-serif" font-size="30" text-anchor="middle">and accelerate end-to-end AI transformation into true Frontier Firms.</text>
 
   <defs>
     <linearGradient id="leftIcon" x1="420" y1="600" x2="560" y2="730" gradientUnits="userSpaceOnUse">
@@ -35,14 +35,14 @@
   </defs>
 
   <g opacity="0.95">
-    <rect x="392" y="602" width="142" height="126" rx="28" fill="url(#leftIcon)"/>
-    <path d="M502 602H531C544 602 554 612 554 625V675C554 687 545 697 533 699H503L467 728C455 737 437 728 437 713V699H418C406 699 396 689 396 677V629C396 614 407 602 422 602H451L468 626L487 602H502Z" fill="url(#leftIcon)"/>
+    <rect x="392" y="614" width="142" height="126" rx="28" fill="url(#leftIcon)"/>
+    <path d="M502 614H531C544 614 554 624 554 637V687C554 699 545 709 533 711H503L467 740C455 749 437 740 437 725V711H418C406 711 396 701 396 689V641C396 626 407 614 422 614H451L468 638L487 614H502Z" fill="url(#leftIcon)"/>
   </g>
 
   <g opacity="0.95">
-    <rect x="628" y="615" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
-    <rect x="662" y="593" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
-    <rect x="662" y="648" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
-    <rect x="595" y="649" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
+    <rect x="628" y="627" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
+    <rect x="662" y="605" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
+    <rect x="662" y="660" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
+    <rect x="595" y="661" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
   </g>
 </svg>
