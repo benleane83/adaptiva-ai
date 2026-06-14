@@ -25,9 +25,14 @@ if (contactEmailForm) {
   contactEmailForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    if (!contactEmailForm.checkValidity()) {
+      contactEmailForm.reportValidity();
+      return;
+    }
+
     const formData = new FormData(contactEmailForm);
     const name = String(formData.get("name") || "").trim();
-    const organisation = String(formData.get("organisation") || "").trim();
+    const organization = String(formData.get("organization") || "").trim();
     const subjectLine = String(formData.get("subject") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
@@ -35,7 +40,7 @@ if (contactEmailForm) {
     const subject = subjectLine || "Adaptiva AI consultation request";
     const body = [
       `Name: ${name}`,
-      `Organization: ${organisation}`,
+      `Organization: ${organization}`,
       `Email: ${email}`,
       `Phone: ${phone}`,
       "",
