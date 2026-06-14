@@ -37,7 +37,7 @@ if (contactEmailForm) {
     const email = String(formData.get("email") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
     const message = String(formData.get("message") || "").trim();
-    const subject = subjectLine || "AdaptivaAI consultation request";
+    const subject = subjectLine || "Adaptiva AI consultation request";
     const body = [
       `Name: ${name}`,
       `Organization: ${organization}`,
