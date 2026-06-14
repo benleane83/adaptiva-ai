@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260614-4">
   </head>
   <body class="page page--home">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -40,7 +40,13 @@
           <ul class="site-nav__list">
             <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="solutions.html">Solutions</a></li>
+            <li class="site-nav__item site-nav__item--has-dropdown">
+              <a href="solutions.html">Solutions</a>
+              <ul class="site-nav__dropdown" aria-label="Solutions submenu">
+                <li><a href="copilot-adoption-enablement.html">Copilot Adoption &amp; Enablement</a></li>
+                <li><a href="digital-content-creation.html">Digital Content Creation</a></li>
+              </ul>
+            </li>
             <li><a href="industries.html">Industries</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -84,22 +90,19 @@
           </div>
           <div class="card-grid card-grid--four">
             <article class="card">
-              <span class="card__tag">01</span>
               <h3 class="card__title">AI Strategy &amp; Advisory</h3>
               <p>Define a clear path to AI adoption with vision, roadmap, and executive alignment.</p>
             </article>
             <article class="card">
-              <span class="card__tag">02</span>
               <h3 class="card__title">AI Readiness &amp; Maturity Assessment</h3>
               <p>Understand capability gaps, adoption barriers, and the next steps for your organisation.</p>
             </article>
             <article class="card">
-              <span class="card__tag">03</span>
-              <h3 class="card__title">Microsoft 365 Copilot Adoption</h3>
+              <h3 class="card__title">Copilot Adoption &amp; Enablement</h3>
               <p>Translate early excitement into practical use cases, rollout planning, and measurable value.</p>
+              <p><a href="copilot-adoption-enablement.html">Explore the solution</a></p>
             </article>
             <article class="card">
-              <span class="card__tag">04</span>
               <h3 class="card__title">AI Change Management</h3>
               <p>Build confidence and momentum with communication, behaviour change, and stakeholder support.</p>
             </article>
@@ -218,7 +221,6 @@
         </div>
         <div class="footer-meta">
           <p>&copy; <span data-year></span> Adaptiva AI. All rights reserved.</p>
-          <p>Designed for a simple static deployment on free hosting.</p>
         </div>
       </div>
     </footer>

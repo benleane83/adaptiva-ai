@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260614-4">
   </head>
   <body class="page page--inner">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -40,7 +40,13 @@
           <ul class="site-nav__list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html" aria-current="page">About</a></li>
-            <li><a href="solutions.html">Solutions</a></li>
+            <li class="site-nav__item site-nav__item--has-dropdown">
+              <a href="solutions.html">Solutions</a>
+              <ul class="site-nav__dropdown" aria-label="Solutions submenu">
+                <li><a href="copilot-adoption-enablement.html">Copilot Adoption &amp; Enablement</a></li>
+                <li><a href="digital-content-creation.html">Digital Content Creation</a></li>
+              </ul>
+            </li>
             <li><a href="industries.html">Industries</a></li>
             <li><a href="resources.html">Resources</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -135,17 +141,6 @@
         </div>
       </section>
 
-      <section class="section section--tight">
-        <div class="container">
-          <figure class="microsoft-alignment-visual">
-            <img
-              src="assets/images/microsoft-365-alignment-visual.svg"
-              alt="Everything aligned with Microsoft 365 visual showing services aligned with Microsoft 365 E3, E5, and E7."
-            >
-          </figure>
-        </div>
-      </section>
-
       <section class="section section--cta">
         <div class="container">
           <div class="cta-panel">
@@ -193,7 +188,6 @@
         </div>
         <div class="footer-meta">
           <p>&copy; <span data-year></span> Adaptiva AI. All rights reserved.</p>
-          <p>Designed for a simple static deployment on free hosting.</p>
         </div>
       </div>
     </footer>
