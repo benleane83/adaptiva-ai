@@ -884,6 +884,11 @@ p {
   width: 100%;
 }
 
+.contact-form__fallback {
+  margin: 0.15rem 0 0;
+  font-size: 0.86rem;
+}
+
 .contact-location-note {
   margin-top: 1rem;
 }
