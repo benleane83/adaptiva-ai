@@ -1,0 +1,48 @@
+<svg width="1087" height="797" viewBox="0 0 1087 797" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Everything aligned with Microsoft 365</title>
+  <desc id="desc">Our services are fully aligned with Microsoft 365 E3, E5, and E7, helping organisations unlock full value and accelerate AI transformation.</desc>
+  <rect width="1087" height="797" fill="#ECEBE9"/>
+
+  <g transform="translate(264 104)">
+    <rect x="0" y="0" width="47" height="47" fill="#F25022"/>
+    <rect x="52" y="0" width="47" height="47" fill="#7FBA00"/>
+    <rect x="0" y="52" width="47" height="47" fill="#00A4EF"/>
+    <rect x="52" y="52" width="47" height="47" fill="#FFB900"/>
+  </g>
+
+  <text x="385" y="177" fill="#737478" font-family="Montserrat, Arial, sans-serif" font-size="78" font-weight="600">Microsoft 365</text>
+
+  <text x="544" y="312" fill="#2E2A2B" font-family="Montserrat, Arial, sans-serif" font-size="58" font-weight="700" text-anchor="middle">Everything aligned with</text>
+  <text x="544" y="370" fill="#2E2A2B" font-family="Montserrat, Arial, sans-serif" font-size="58" font-weight="700" text-anchor="middle">Microsoft 365</text>
+
+  <text x="544" y="446" fill="#08223D" font-family="Montserrat, Arial, sans-serif" font-size="41" text-anchor="middle">Our services are fully aligned with Microsoft 365 E3, E5, and E7, helping</text>
+  <text x="544" y="493" fill="#08223D" font-family="Montserrat, Arial, sans-serif" font-size="41" text-anchor="middle">organisations unlock the full value of their Microsoft ecosystem and accelerate end-</text>
+  <text x="544" y="540" fill="#08223D" font-family="Montserrat, Arial, sans-serif" font-size="41" text-anchor="middle">to-end AI transformation into true Frontier Firms.</text>
+
+  <defs>
+    <linearGradient id="leftIcon" x1="420" y1="600" x2="560" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00AEEF"/>
+      <stop offset="0.35" stop-color="#7FD321"/>
+      <stop offset="0.58" stop-color="#F8E71C"/>
+      <stop offset="0.78" stop-color="#F76B1C"/>
+      <stop offset="1" stop-color="#D54ACF"/>
+    </linearGradient>
+    <linearGradient id="rightIcon" x1="620" y1="590" x2="760" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#77E6D1"/>
+      <stop offset="0.45" stop-color="#0CA8C9"/>
+      <stop offset="1" stop-color="#1446A0"/>
+    </linearGradient>
+  </defs>
+
+  <g opacity="0.95">
+    <rect x="392" y="602" width="142" height="126" rx="28" fill="url(#leftIcon)"/>
+    <path d="M502 602H531C544 602 554 612 554 625V675C554 687 545 697 533 699H503L467 728C455 737 437 728 437 713V699H418C406 699 396 689 396 677V629C396 614 407 602 422 602H451L468 626L487 602H502Z" fill="url(#leftIcon)"/>
+  </g>
+
+  <g opacity="0.95">
+    <rect x="628" y="615" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
+    <rect x="662" y="593" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
+    <rect x="662" y="648" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
+    <rect x="595" y="649" width="114" height="84" rx="14" fill="url(#rightIcon)"/>
+  </g>
+</svg>

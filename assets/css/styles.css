@@ -632,6 +632,16 @@ p {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(238, 242, 247, 0.84) 100%);
 }
 
+.microsoft-alignment-visual {
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.microsoft-alignment-visual img {
+  width: 100%;
+  height: auto;
+}
+
 .cta-panel {
   overflow: hidden;
   padding: clamp(2rem, 5vw, 3rem);
