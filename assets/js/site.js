@@ -61,7 +61,13 @@ document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
           Accept: "application/json"
         }
       });
-      const result = await response.json().catch(() => null);
+      let result = null;
+
+      try {
+        result = await response.json();
+      } catch (error) {
+        console.error("Unable to parse contact form response.", error);
+      }
 
       if (!response.ok || !result?.success) {
         throw new Error(result?.message || "Request failed");
