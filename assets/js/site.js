@@ -58,6 +58,11 @@ if (complimentaryDialogTrigger && complimentaryDialog) {
   complimentaryDialog.addEventListener("close", () => {
     document.body.classList.remove("video-dialog-open");
   });
+
+  if (window.location.hash === "#register") {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+    openComplimentaryDialog();
+  }
 }
 
 document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
