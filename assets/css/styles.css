@@ -846,12 +846,12 @@ p {
 
 .solution-image-tile--copilot {
   --tile-bg: url("../images/161dc8fc-057f-46a7-9692-a586fb67bcfc.png");
-  min-height: clamp(30rem, 42vw, 38rem);
+  min-height: clamp(33rem, 46vw, 41rem);
 }
 
 .solution-image-tile--digital-content {
   --tile-bg: url("../images/a027a183-9807-4564-b01b-b4296e8d16cd.png");
-  min-height: clamp(30rem, 42vw, 38rem);
+  min-height: clamp(33rem, 46vw, 41rem);
 }
 
 .solution-image-tile__content--landing {
@@ -871,11 +871,13 @@ p {
 .solution-image-tile__content--landing .lede {
   margin-bottom: 1.5rem;
   max-width: 100%;
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  line-height: 1.45;
   color: var(--color-navy);
 }
 
 .solution-landing-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-weight: 600;
   line-height: 1.08;
@@ -1272,6 +1274,11 @@ p {
 @media (max-width: 920px) {
   .nav-toggle {
     display: inline-flex;
+  }
+
+  .solution-image-tile--copilot,
+  .solution-image-tile--digital-content {
+    min-height: clamp(30rem, 78vw, 36rem);
   }
 
   .hero--home {
