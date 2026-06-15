@@ -19,10 +19,18 @@ document.querySelectorAll("[data-year]").forEach((node) => {
   node.textContent = String(new Date().getFullYear());
 });
 
-const contactEmailForm = document.querySelector("[data-email-form]");
+document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
+  const submitButton = contactEmailForm.querySelector('button[type="submit"]');
+  const statusNode = contactEmailForm.querySelector("[data-form-status]");
+  const defaultButtonLabel = submitButton ? submitButton.textContent.trim() : "Send";
 
-if (contactEmailForm) {
-  contactEmailForm.addEventListener("submit", (event) => {
+  const setStatus = (message) => {
+    if (statusNode) {
+      statusNode.textContent = message;
+    }
+  };
+
+  contactEmailForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!contactEmailForm.checkValidity()) {
@@ -31,26 +39,46 @@ if (contactEmailForm) {
     }
 
     const formData = new FormData(contactEmailForm);
-    const name = String(formData.get("name") || "").trim();
-    const organization = String(formData.get("organization") || "").trim();
-    const subjectLine = String(formData.get("subject") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const phone = String(formData.get("phone") || "").trim();
-    const message = String(formData.get("message") || "").trim();
-    const subject = subjectLine || "Adaptiva AI consultation request";
-    const body = [
-      `Name: ${name}`,
-      `Organization: ${organization}`,
-      `Email: ${email}`,
-      `Phone: ${phone}`,
-      "",
-      "Message:",
-      message
-    ].join("\n");
+    const accessKey = String(formData.get("access_key") || "").trim();
 
-    window.location.href = `mailto:info@adaptivaai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (!accessKey) {
+      setStatus("This form is temporarily unavailable. Please email info@adaptivaai.com directly.");
+      return;
+    }
+
+    setStatus("");
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+
+    try {
+      const response = await fetch(contactEmailForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message || "Request failed");
+      }
+
+      contactEmailForm.reset();
+      setStatus("Thanks — your request has been sent successfully.");
+    } catch (error) {
+      setStatus("Sorry, there was a problem sending your request. Please email info@adaptivaai.com directly.");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = defaultButtonLabel;
+      }
+    }
   });
-}
+});
 
 const videoTrigger = document.querySelector("[data-video-trigger]");
 const videoDialog = document.querySelector("[data-video-dialog]");
