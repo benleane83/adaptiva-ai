@@ -861,7 +861,7 @@ p {
 
 .solution-image-tile__content--landing h2,
 .solution-image-tile__content--landing .lede {
-  color: #ffffff;
+  color: var(--color-navy);
 }
 
 .solution-image-tile__content--landing h2 {
@@ -870,8 +870,8 @@ p {
 
 .solution-image-tile__content--landing .lede {
   margin-bottom: 1.5rem;
-  max-width: 34ch;
-  color: rgba(255, 255, 255, 0.95);
+  max-width: 100%;
+  color: var(--color-navy);
 }
 
 .solution-landing-title {
