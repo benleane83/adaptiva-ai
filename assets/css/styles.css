@@ -845,40 +845,41 @@ p {
 }
 
 .solution-image-tile--copilot {
-  --tile-bg: linear-gradient(135deg, #1d4a8a 0%, #081B3A 100%);
+  --tile-bg: url("../images/161dc8fc-057f-46a7-9692-a586fb67bcfc.png");
   min-height: clamp(30rem, 42vw, 38rem);
 }
 
 .solution-image-tile--digital-content {
-  --tile-bg: linear-gradient(135deg, #0e5e7a 0%, #081B3A 100%);
+  --tile-bg: url("../images/a027a183-9807-4564-b01b-b4296e8d16cd.png");
   min-height: clamp(30rem, 42vw, 38rem);
 }
 
 .solution-image-tile__content--landing {
-  max-width: 100%;
+  max-width: min(100%, 35rem);
   padding: clamp(1.2rem, 2vw, 2rem);
 }
 
 .solution-image-tile__content--landing h2,
-.solution-image-tile__content--landing p {
+.solution-image-tile__content--landing .lede {
   color: #ffffff;
 }
 
 .solution-image-tile__content--landing h2 {
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.75rem;
 }
 
-.solution-image-tile__content--landing p {
+.solution-image-tile__content--landing .lede {
   margin-bottom: 1.5rem;
-  font-size: 1rem;
-  line-height: 1.6;
+  max-width: 34ch;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .solution-landing-title {
-  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
 .solution-image-tile::before {
