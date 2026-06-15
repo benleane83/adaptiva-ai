@@ -845,12 +845,12 @@ p {
 }
 
 .solution-image-tile--copilot {
-  --tile-bg: url("https://github.com/user-attachments/assets/161dc8fc-057f-46a7-9692-a586fb67bcfc");
+  --tile-bg: url("../images/161dc8fc-057f-46a7-9692-a586fb67bcfc.png");
   min-height: clamp(30rem, 42vw, 38rem);
 }
 
 .solution-image-tile--digital-content {
-  --tile-bg: url("https://github.com/user-attachments/assets/a027a183-9807-4564-b01b-b4296e8d16cd");
+  --tile-bg: url("../images/a027a183-9807-4564-b01b-b4296e8d16cd.png");
   min-height: clamp(30rem, 42vw, 38rem);
 }
 
