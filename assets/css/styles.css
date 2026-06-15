@@ -523,16 +523,16 @@ p {
   inset: 0;
   background:
     /* Radial haze bridges the text area and the artwork at centre-right */
-    radial-gradient(ellipse 46% 72% at 62% 50%, rgba(232, 238, 248, 0.48) 0%, rgba(232, 238, 248, 0) 70%),
+    radial-gradient(ellipse 46% 72% at 62% 50%, rgba(232, 238, 248, 0.28) 0%, rgba(232, 238, 248, 0) 70%),
     /* Left-to-right veil with extra mid-stops for a gradual blend */
     linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.99) 0%,
-      rgba(255, 255, 255, 0.96) 24%,
-      rgba(255, 255, 255, 0.82) 40%,
-      rgba(255, 255, 255, 0.52) 54%,
-      rgba(255, 255, 255, 0.20) 68%,
-      rgba(255, 255, 255, 0.05) 82%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.88) 24%,
+      rgba(255, 255, 255, 0.60) 40%,
+      rgba(255, 255, 255, 0.28) 54%,
+      rgba(255, 255, 255, 0.08) 68%,
+      rgba(255, 255, 255, 0.02) 82%,
       rgba(255, 255, 255, 0.00) 100%
     );
 }
@@ -541,7 +541,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.86) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.60) 100%);
   pointer-events: none;
 }
 
