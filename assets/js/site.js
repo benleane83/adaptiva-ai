@@ -91,7 +91,17 @@ document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
       contactEmailForm.reset();
       setStatus("Thanks — your request has been sent successfully.");
     } catch (error) {
-      setStatus("Sorry, there was a problem sending your request. Please email info@adaptivaai.com directly.");
+      const errorMessage = error instanceof Error ? error.message : "";
+
+      if (errorMessage === "The form service returned an unexpected response.") {
+        setStatus("Sorry, the form service returned an unexpected response. Please try again or email info@adaptivaai.com directly.");
+      } else if (errorMessage.startsWith("Request failed with status")) {
+        setStatus("Sorry, the form service is unavailable right now. Please try again or email info@adaptivaai.com directly.");
+      } else if (errorMessage) {
+        setStatus(`Sorry, ${errorMessage}. Please try again or email info@adaptivaai.com directly.`);
+      } else {
+        setStatus("Sorry, there was a problem sending your request. Please email info@adaptivaai.com directly.");
+      }
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
