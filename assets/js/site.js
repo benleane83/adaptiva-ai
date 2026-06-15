@@ -61,16 +61,31 @@ document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
           Accept: "application/json"
         }
       });
+      const responseClone = response.clone();
       let result = null;
 
       try {
         result = await response.json();
       } catch (error) {
-        console.error("Unable to parse contact form response.", error);
+        const responseText = await responseClone.text().catch(() => "");
+
+        console.error("Unable to parse contact form response.", {
+          status: response.status,
+          body: responseText,
+          error
+        });
       }
 
-      if (!response.ok || !result?.success) {
-        throw new Error(result?.message || "Request failed");
+      if (!response.ok) {
+        throw new Error(result?.message || `Request failed with status ${response.status}`);
+      }
+
+      if (!result) {
+        throw new Error("The form service returned an unexpected response.");
+      }
+
+      if (!result.success) {
+        throw new Error(result.message || "Request failed");
       }
 
       contactEmailForm.reset();
