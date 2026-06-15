@@ -439,6 +439,19 @@ textarea {
   font-size: 0.94rem;
 }
 
+.contact-dialog {
+  width: min(48rem, calc(100% - 2rem));
+}
+
+.contact-dialog__body {
+  padding: 0 clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.contact-dialog__intro {
+  margin: 0 0 1.25rem;
+  color: var(--color-text);
+}
+
 body.video-dialog-open {
   overflow: hidden;
 }
@@ -948,6 +961,10 @@ p {
   gap: 1.1rem;
 }
 
+.contact-panel__actions {
+  margin-top: 1.75rem;
+}
+
 .contact-form__row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1007,6 +1024,7 @@ p {
 }
 
 .contact-form__field input,
+.contact-form__field select,
 .contact-form__field textarea {
   width: 100%;
   margin: 0;
@@ -1023,6 +1041,11 @@ p {
 .contact-form__field textarea::placeholder {
   color: var(--color-contact-placeholder);
   opacity: 1;
+}
+
+.contact-form__field select {
+  color: var(--color-navy-strong);
+  cursor: pointer;
 }
 
 .contact-form__field textarea {
@@ -1277,7 +1300,8 @@ p {
 }
 
 @media (max-width: 680px) {
-  .video-dialog {
+  .video-dialog,
+  .contact-dialog {
     width: calc(100% - 1rem);
   }
 

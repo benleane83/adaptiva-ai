@@ -19,11 +19,53 @@ document.querySelectorAll("[data-year]").forEach((node) => {
   node.textContent = String(new Date().getFullYear());
 });
 
+const complimentaryDialogTrigger = document.querySelector("[data-complimentary-trigger]");
+const complimentaryDialog = document.querySelector("[data-complimentary-dialog]");
+const complimentaryDialogCloseButtons = document.querySelectorAll("[data-complimentary-close]");
+
+if (complimentaryDialogTrigger && complimentaryDialog) {
+  const openComplimentaryDialog = () => {
+    if (typeof complimentaryDialog.showModal === "function") {
+      complimentaryDialog.showModal();
+    } else {
+      complimentaryDialog.setAttribute("open", "open");
+    }
+
+    document.body.classList.add("video-dialog-open");
+  };
+
+  const closeComplimentaryDialog = () => {
+    if (typeof complimentaryDialog.close === "function") {
+      complimentaryDialog.close();
+    } else {
+      complimentaryDialog.removeAttribute("open");
+      document.body.classList.remove("video-dialog-open");
+    }
+  };
+
+  complimentaryDialogTrigger.addEventListener("click", openComplimentaryDialog);
+
+  complimentaryDialogCloseButtons.forEach((button) => {
+    button.addEventListener("click", closeComplimentaryDialog);
+  });
+
+  complimentaryDialog.addEventListener("click", (event) => {
+    if (event.target === complimentaryDialog) {
+      closeComplimentaryDialog();
+    }
+  });
+
+  complimentaryDialog.addEventListener("close", () => {
+    document.body.classList.remove("video-dialog-open");
+  });
+}
+
 document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
   const submitButton = contactEmailForm.querySelector('button[type="submit"]');
   const statusNode = contactEmailForm.querySelector("[data-form-status]");
   const defaultButtonLabel = submitButton ? submitButton.textContent.trim() : "Send";
   const createFormError = (code, message) => Object.assign(new Error(message), { code });
+  const isComplimentaryForm = contactEmailForm.dataset.emailForm === "complimentary-session";
 
   const setStatus = (message) => {
     if (statusNode) {
@@ -91,6 +133,17 @@ document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
 
       contactEmailForm.reset();
       setStatus("Thanks — your request has been sent successfully.");
+
+      if (isComplimentaryForm && complimentaryDialog) {
+        setTimeout(() => {
+          if (typeof complimentaryDialog.close === "function") {
+            complimentaryDialog.close();
+          } else {
+            complimentaryDialog.removeAttribute("open");
+            document.body.classList.remove("video-dialog-open");
+          }
+        }, 2000);
+      }
     } catch (error) {
       const errorCode = typeof error === "object" && error ? error.code ?? "" : "";
       const errorMessage = error instanceof Error ? error.message : "";

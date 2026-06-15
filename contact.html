@@ -85,6 +85,11 @@
               <li><strong>Readiness and adoption planning</strong> for teams moving into delivery.</li>
               <li><strong>Change and enablement support</strong> for leaders building confidence and momentum.</li>
             </ul>
+            <div class="button-row contact-panel__actions">
+              <button class="button button--primary" type="button" data-complimentary-trigger>
+                Register for Complimentary Copilot Session
+              </button>
+            </div>
           </div>
           <aside class="callout contact-callout">
             <form
@@ -216,6 +221,180 @@
               Based in Dubai | Supporting organizations across the UAE and globally.
             </p>
           </aside>
+          <dialog class="video-dialog contact-dialog" aria-labelledby="complimentary-dialog-title" data-complimentary-dialog>
+            <div class="video-dialog__panel contact-dialog__panel">
+              <div class="video-dialog__header">
+                <div>
+                  <p class="eyebrow">Complimentary Session</p>
+                  <h2 id="complimentary-dialog-title">Register for Complimentary Copilot Session</h2>
+                </div>
+                <button
+                  class="video-dialog__close"
+                  type="button"
+                  aria-label="Close complimentary session form"
+                  data-complimentary-close
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="contact-dialog__body">
+                <p class="contact-dialog__intro">
+                  To celebrate the launch of my new venture, I’m offering a limited number of complimentary strategy sessions. Fill in your details to reserve your spot:
+                </p>
+                <form
+                  class="contact-form"
+                  data-email-form="complimentary-session"
+                  action="https://api.web3forms.com/submit"
+                  method="post"
+                >
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="5afa9fd7-f544-46d6-8817-8241c1ae9338"
+                  >
+                  <input type="hidden" name="from_name" value="Adaptiva AI website">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    class="visually-hidden"
+                    tabindex="-1"
+                    autocomplete="off"
+                  >
+                  <div class="contact-form__row">
+                    <label class="contact-form__field" for="complimentary-name">
+                      <span class="visually-hidden">Name*</span>
+                      <span class="contact-form__control">
+                        <span class="contact-form__icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <circle cx="12" cy="8" r="3.5"></circle>
+                            <path d="M5 20c0-3.5 2.8-6.2 7-6.2s7 2.7 7 6.2"></path>
+                          </svg>
+                        </span>
+                        <span class="contact-form__divider" aria-hidden="true"></span>
+                        <input id="complimentary-name" name="name" type="text" required autocomplete="name" placeholder="Name*">
+                      </span>
+                    </label>
+                    <label class="contact-form__field" for="complimentary-job-title">
+                      <span class="visually-hidden">Job Title*</span>
+                      <span class="contact-form__control">
+                        <span class="contact-form__icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M4 19.5h16"></path>
+                            <path d="M7 19.5v-9h10v9"></path>
+                            <path d="M9 10.5V7.2A1.7 1.7 0 0 1 10.7 5.5h2.6A1.7 1.7 0 0 1 15 7.2v3.3"></path>
+                          </svg>
+                        </span>
+                        <span class="contact-form__divider" aria-hidden="true"></span>
+                        <input
+                          id="complimentary-job-title"
+                          name="jobTitle"
+                          type="text"
+                          required
+                          autocomplete="organization-title"
+                          placeholder="Job Title*"
+                        >
+                      </span>
+                    </label>
+                  </div>
+                  <div class="contact-form__row">
+                    <label class="contact-form__field" for="complimentary-email">
+                      <span class="visually-hidden">Email*</span>
+                      <span class="contact-form__control">
+                        <span class="contact-form__icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <rect x="3.5" y="6" width="17" height="12" rx="2"></rect>
+                            <path d="m4.5 7 7.5 6 7.5-6"></path>
+                          </svg>
+                        </span>
+                        <span class="contact-form__divider" aria-hidden="true"></span>
+                        <input id="complimentary-email" name="email" type="email" required autocomplete="email" placeholder="Email*">
+                      </span>
+                    </label>
+                    <label class="contact-form__field" for="complimentary-phone">
+                      <span class="visually-hidden">Phone*</span>
+                      <span class="contact-form__control">
+                        <span class="contact-form__icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="m7.5 4 3.1 3.1-1.8 2.7c1 1.8 2.5 3.3 4.2 4.2l2.7-1.8L19 15.5l-2.5 4c-5.9-1.5-10.5-6.1-12-12z"></path>
+                          </svg>
+                        </span>
+                        <span class="contact-form__divider" aria-hidden="true"></span>
+                        <input id="complimentary-phone" name="phone" type="tel" required autocomplete="tel" placeholder="Phone*">
+                      </span>
+                    </label>
+                  </div>
+                  <div class="contact-form__row contact-form__row--full">
+                    <label class="contact-form__field contact-form__field--message" for="complimentary-ai-tools">
+                      <span class="visually-hidden">What AI tools have you used before?*</span>
+                      <span class="contact-form__control contact-form__control--message">
+                        <span class="contact-form__icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v6A2.5 2.5 0 0 1 16.5 15H9l-4 4v-4.5z"></path>
+                            <path d="M9 8.8h6"></path>
+                            <path d="M9 11.8h4"></path>
+                          </svg>
+                        </span>
+                        <span class="contact-form__divider" aria-hidden="true"></span>
+                        <textarea
+                          id="complimentary-ai-tools"
+                          name="aiTools"
+                          rows="4"
+                          required
+                          placeholder="What AI tools have you used before?*"
+                        ></textarea>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="contact-form__row">
+                    <label class="contact-form__field" for="complimentary-skill-level">
+                      <span class="visually-hidden">AI Skill Level*</span>
+                      <span class="contact-form__control">
+                        <span class="contact-form__icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M12 3.5 15 5l3.3-.4.9 3.1 2.8 1.7-1.7 2.8.4 3.3-3.1.9L16 19l-2.8-1.7L9.9 19l-1.5-2.8-3.1-.9.4-3.3L4 9.2l2.8-1.7.9-3.1L11 5z"></path>
+                            <circle cx="12" cy="12" r="3.1"></circle>
+                          </svg>
+                        </span>
+                        <span class="contact-form__divider" aria-hidden="true"></span>
+                        <select id="complimentary-skill-level" name="skillLevel" required>
+                          <option value="" selected disabled>AI Skill Level*</option>
+                          <option value="Beginner">Beginner</option>
+                          <option value="Intermediate">Intermediate</option>
+                          <option value="Advanced">Advanced</option>
+                        </select>
+                      </span>
+                    </label>
+                    <label class="contact-form__field" for="complimentary-language">
+                      <span class="visually-hidden">Language*</span>
+                      <span class="contact-form__control">
+                        <span class="contact-form__icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M4 6.5h16"></path>
+                            <path d="M8 6.5c0 5.2 2 9.7 4 12"></path>
+                            <path d="M16 6.5c0 5.2-2 9.7-4 12"></path>
+                            <path d="M6.5 14.5h11"></path>
+                          </svg>
+                        </span>
+                        <span class="contact-form__divider" aria-hidden="true"></span>
+                        <select id="complimentary-language" name="language" required>
+                          <option value="" selected disabled>Language*</option>
+                          <option value="English">English</option>
+                          <option value="Farsi">Farsi</option>
+                        </select>
+                      </span>
+                    </label>
+                  </div>
+                  <button class="button button--primary contact-form__submit" type="submit">
+                    Reserve Complimentary Session
+                  </button>
+                  <p class="note contact-form__fallback">
+                    Prefer email? Contact <a href="mailto:info@adaptivaai.com">info@adaptivaai.com</a>.
+                  </p>
+                  <p class="note contact-form__fallback" data-form-status aria-live="polite"></p>
+                </form>
+              </div>
+            </div>
+          </dialog>
         </div>
       </section>
 
