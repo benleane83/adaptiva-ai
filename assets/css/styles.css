@@ -510,7 +510,7 @@ p {
   min-height: clamp(34rem, 70vh, 48rem);
   /* Subtle blue-grey matches the image's own soft left-edge fade */
   background-color: #f1f4f8;
-  background-image: url("../images/adaptiva-wave-bg-1.png");
+  background-image: url("../images/adaptiva-wave-bg-wide-1.png");
   background-position: right center;
   background-repeat: no-repeat;
   /* cover ensures the image fills the full section width on all desktop sizes */
