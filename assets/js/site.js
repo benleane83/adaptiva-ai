@@ -93,7 +93,7 @@ document.querySelectorAll("[data-email-form]").forEach((form) => {
         `AI Skill Level: ${skillLevel}`,
         `Language: ${language}`
       ].join("\n");
-    } else {
+    } else if (formType === "consultation" || formType === "") {
       const name = String(formData.get("name") || "").trim();
       const organization = String(formData.get("organization") || "").trim();
       const subjectLine = String(formData.get("subject") || "").trim();
@@ -111,6 +111,8 @@ document.querySelectorAll("[data-email-form]").forEach((form) => {
         "Message:",
         message
       ].join("\n");
+    } else {
+      return;
     }
 
     window.location.href = `mailto:info@adaptivaai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
