@@ -78,7 +78,7 @@ document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
       }
 
       if (!response.ok) {
-        throw createFormError("service_unavailable", result?.message || `Request failed with status ${response.status}`);
+        throw createFormError("service_unavailable", result?.message || "The form service is unavailable right now.");
       }
 
       if (!result) {
@@ -92,7 +92,7 @@ document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
       contactEmailForm.reset();
       setStatus("Thanks — your request has been sent successfully.");
     } catch (error) {
-      const errorCode = error && typeof error === "object" && "code" in error ? error.code : "";
+      const errorCode = typeof error === "object" && error ? error.code ?? "" : "";
       const errorMessage = error instanceof Error ? error.message : "";
 
       if (errorCode === "unexpected_response") {
