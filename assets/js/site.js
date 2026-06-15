@@ -60,72 +60,107 @@ if (complimentaryDialogTrigger && complimentaryDialog) {
   });
 }
 
-document.querySelectorAll("[data-email-form]").forEach((form) => {
-  form.addEventListener("submit", (event) => {
+document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
+  const submitButton = contactEmailForm.querySelector('button[type="submit"]');
+  const statusNode = contactEmailForm.querySelector("[data-form-status]");
+  const defaultButtonLabel = submitButton ? submitButton.textContent.trim() : "Send";
+  const createFormError = (code, message) => Object.assign(new Error(message), { code });
+  const isComplimentaryForm = contactEmailForm.dataset.emailForm === "complimentary-session";
+
+  const setStatus = (message) => {
+    if (statusNode) {
+      statusNode.textContent = message;
+    }
+  };
+
+  contactEmailForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
+    if (!contactEmailForm.checkValidity()) {
+      contactEmailForm.reportValidity();
       return;
     }
 
-    const formData = new FormData(form);
-    const formType = form.dataset.emailForm;
-    const isComplimentaryForm = formType === "complimentary-session";
-    const isConsultationForm = formType === "consultation" || formType === "";
-    let subject = "Adaptiva AI consultation request";
-    let body = "";
+    const formData = new FormData(contactEmailForm);
+    const accessKey = String(formData.get("access_key") || "").trim();
 
-    if (isComplimentaryForm) {
-      const name = String(formData.get("name") || "").trim();
-      const jobTitle = String(formData.get("jobTitle") || "").trim();
-      const email = String(formData.get("email") || "").trim();
-      const phone = String(formData.get("phone") || "").trim();
-      const aiTools = String(formData.get("aiTools") || "").trim();
-      const skillLevel = String(formData.get("skillLevel") || "").trim();
-      const language = String(formData.get("language") || "").trim();
-
-      subject = "Complimentary Copilot Session Registration";
-      body = [
-        `Name: ${name}`,
-        `Job Title: ${jobTitle}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `What AI tools have you used before?: ${aiTools}`,
-        `AI Skill Level: ${skillLevel}`,
-        `Language: ${language}`
-      ].join("\n");
-    } else if (isConsultationForm) {
-      const name = String(formData.get("name") || "").trim();
-      const organization = String(formData.get("organization") || "").trim();
-      const subjectLine = String(formData.get("subject") || "").trim();
-      const email = String(formData.get("email") || "").trim();
-      const phone = String(formData.get("phone") || "").trim();
-      const message = String(formData.get("message") || "").trim();
-
-      subject = subjectLine || subject;
-      body = [
-        `Name: ${name}`,
-        `Organization: ${organization}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        "",
-        "Message:",
-        message
-      ].join("\n");
-    } else {
-      console.warn(`Unsupported email form type: ${formType}`);
+    if (!accessKey) {
+      setStatus("This form is temporarily unavailable. Please email info@adaptivaai.com directly.");
       return;
     }
 
-    window.location.href = `mailto:info@adaptivaai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setStatus("");
 
-    if (isComplimentaryForm && complimentaryDialog) {
-      if (typeof complimentaryDialog.close === "function") {
-        complimentaryDialog.close();
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+
+    try {
+      const response = await fetch(contactEmailForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+      const responseText = await response.text();
+      let result = null;
+
+      if (responseText) {
+        try {
+          result = JSON.parse(responseText);
+        } catch (error) {
+          console.error("Unable to parse contact form response.", {
+            status: response.status,
+            body: responseText,
+            error
+          });
+        }
+      }
+
+      if (!response.ok) {
+        throw createFormError("service_unavailable", result?.message || "The form service is unavailable right now.");
+      }
+
+      if (!result) {
+        throw createFormError("unexpected_response", "The form service returned an unexpected response.");
+      }
+
+      if (!result.success) {
+        throw createFormError("submission_failed", result.message || "Request failed");
+      }
+
+      contactEmailForm.reset();
+      setStatus("Thanks — your request has been sent successfully.");
+
+      if (isComplimentaryForm && complimentaryDialog) {
+        setTimeout(() => {
+          if (typeof complimentaryDialog.close === "function") {
+            complimentaryDialog.close();
+          } else {
+            complimentaryDialog.removeAttribute("open");
+            document.body.classList.remove("video-dialog-open");
+          }
+        }, 2000);
+      }
+    } catch (error) {
+      const errorCode = typeof error === "object" && error ? error.code ?? "" : "";
+      const errorMessage = error instanceof Error ? error.message : "";
+
+      if (errorCode === "unexpected_response") {
+        setStatus("Sorry, the form service returned an unexpected response. Please try again or email info@adaptivaai.com directly.");
+      } else if (errorCode === "service_unavailable") {
+        setStatus("Sorry, the form service is unavailable right now. Please try again or email info@adaptivaai.com directly.");
+      } else if (errorMessage) {
+        setStatus(`Sorry, ${errorMessage}. Please try again or email info@adaptivaai.com directly.`);
       } else {
-        complimentaryDialog.removeAttribute("open");
-        document.body.classList.remove("video-dialog-open");
+        setStatus("Sorry, there was a problem sending your request. Please email info@adaptivaai.com directly.");
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = defaultButtonLabel;
       }
     }
   });

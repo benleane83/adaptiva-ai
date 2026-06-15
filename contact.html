@@ -95,10 +95,22 @@
             <form
               class="contact-form"
               data-email-form
-              action="mailto:info@adaptivaai.com"
+              action="https://api.web3forms.com/submit"
               method="post"
-              enctype="text/plain"
             >
+              <input
+                type="hidden"
+                name="access_key"
+                value="5b018a2e-2822-4109-8329-508b82f9531a"
+              >
+              <input type="hidden" name="from_name" value="Adaptiva AI website">
+              <input
+                type="checkbox"
+                name="botcheck"
+                class="visually-hidden"
+                tabindex="-1"
+                autocomplete="off"
+              >
               <div class="contact-form__row">
                 <label class="contact-form__field" for="contact-name">
                   <span class="visually-hidden">Name*</span>
@@ -200,9 +212,9 @@
                 Request Consultation
               </button>
               <p class="note contact-form__fallback">
-                If your email app does not open, send your request directly to
-                <a href="mailto:info@adaptivaai.com">info@adaptivaai.com</a>.
+                Prefer email? Contact <a href="mailto:info@adaptivaai.com">info@adaptivaai.com</a>.
               </p>
+              <p class="note contact-form__fallback" data-form-status aria-live="polite"></p>
             </form>
             <p class="note contact-location-note">
               <span aria-hidden="true">📍</span>
@@ -232,10 +244,22 @@
                 <form
                   class="contact-form"
                   data-email-form="complimentary-session"
-                  action="mailto:info@adaptivaai.com"
+                  action="https://api.web3forms.com/submit"
                   method="post"
-                  enctype="text/plain"
                 >
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="5afa9fd7-f544-46d6-8817-8241c1ae9338"
+                  >
+                  <input type="hidden" name="from_name" value="Adaptiva AI website">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    class="visually-hidden"
+                    tabindex="-1"
+                    autocomplete="off"
+                  >
                   <div class="contact-form__row">
                     <label class="contact-form__field" for="complimentary-name">
                       <span class="visually-hidden">Name*</span>
@@ -364,9 +388,9 @@
                     Reserve Complimentary Session
                   </button>
                   <p class="note contact-form__fallback">
-                    If your email app does not open, send your request directly to
-                    <a href="mailto:info@adaptivaai.com">info@adaptivaai.com</a>.
+                    Prefer email? Contact <a href="mailto:info@adaptivaai.com">info@adaptivaai.com</a>.
                   </p>
+                  <p class="note contact-form__fallback" data-form-status aria-live="polite"></p>
                 </form>
               </div>
             </div>
@@ -433,6 +457,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/site.js"></script>
+    <script src="assets/js/site.js?v=20260615-01"></script>
   </body>
 </html>
