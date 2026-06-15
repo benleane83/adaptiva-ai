@@ -23,6 +23,7 @@ document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
   const submitButton = contactEmailForm.querySelector('button[type="submit"]');
   const statusNode = contactEmailForm.querySelector("[data-form-status]");
   const defaultButtonLabel = submitButton ? submitButton.textContent.trim() : "Send";
+  const createFormError = (code, message) => Object.assign(new Error(message), { code });
 
   const setStatus = (message) => {
     if (statusNode) {
@@ -61,41 +62,42 @@ document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
           Accept: "application/json"
         }
       });
-      const responseClone = response.clone();
+      const responseText = await response.text();
       let result = null;
 
-      try {
-        result = await response.json();
-      } catch (error) {
-        const responseText = await responseClone.text().catch(() => "");
-
-        console.error("Unable to parse contact form response.", {
-          status: response.status,
-          body: responseText,
-          error
-        });
+      if (responseText) {
+        try {
+          result = JSON.parse(responseText);
+        } catch (error) {
+          console.error("Unable to parse contact form response.", {
+            status: response.status,
+            body: responseText,
+            error
+          });
+        }
       }
 
       if (!response.ok) {
-        throw new Error(result?.message || `Request failed with status ${response.status}`);
+        throw createFormError("service_unavailable", result?.message || `Request failed with status ${response.status}`);
       }
 
       if (!result) {
-        throw new Error("The form service returned an unexpected response.");
+        throw createFormError("unexpected_response", "The form service returned an unexpected response.");
       }
 
       if (!result.success) {
-        throw new Error(result.message || "Request failed");
+        throw createFormError("submission_failed", result.message || "Request failed");
       }
 
       contactEmailForm.reset();
       setStatus("Thanks — your request has been sent successfully.");
     } catch (error) {
+      const errorCode = error && typeof error === "object" && "code" in error ? error.code : "";
       const errorMessage = error instanceof Error ? error.message : "";
 
-      if (errorMessage === "The form service returned an unexpected response.") {
+      if (errorCode === "unexpected_response") {
         setStatus("Sorry, the form service returned an unexpected response. Please try again or email info@adaptivaai.com directly.");
-      } else if (errorMessage.startsWith("Request failed with status")) {
+      } else if (errorCode === "service_unavailable") {
         setStatus("Sorry, the form service is unavailable right now. Please try again or email info@adaptivaai.com directly.");
       } else if (errorMessage) {
         setStatus(`Sorry, ${errorMessage}. Please try again or email info@adaptivaai.com directly.`);
