@@ -830,10 +830,6 @@ p {
   z-index: 1;
   max-width: min(100%, 24rem);
   padding: clamp(0.95rem, 1.5vw, 1.2rem);
-  border: 1px solid rgba(255, 255, 255, 0.62);
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 10px 26px rgba(13, 27, 42, 0.08);
 }
 
 .solution-image-tile h3,
