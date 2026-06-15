@@ -497,9 +497,9 @@ p {
   min-height: clamp(34rem, 70vh, 48rem);
   background-color: #ffffff;
   background-image: url("../images/adaptiva-wave-bg-1.png");
-  background-position: right bottom;
+  background-position: right center;
   background-repeat: no-repeat;
-  background-size: min(78rem, 72vw) auto;
+  background-size: auto 100%;
 }
 
 .hero--home::before {
@@ -1169,8 +1169,8 @@ p {
   }
 
   .hero--home {
-    background-position: center bottom;
-    background-size: min(58rem, 125vw) auto;
+    background-position: center center;
+    background-size: auto 100%;
   }
 
   .hero--home::before {
@@ -1286,7 +1286,7 @@ p {
 
   .hero--home {
     min-height: auto;
-    background-size: 56rem auto;
+    background-size: auto 100%;
   }
 
   .site-header__bar {
