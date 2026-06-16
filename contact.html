@@ -68,6 +68,12 @@
               Get in touch to book a consultation, ask about services, or explore how Adaptiva AI
               can help your organisation on its AI journey.
             </p>
+            <p class="lede">
+              For a limited time, we are offering complimentary Microsoft 365 Copilot introductory sessions.
+            </p>
+            <button class="button button--primary" type="button" data-complimentary-trigger>
+              Register for a complimentary Copilot intro session
+            </button>
           </div>
         </div>
       </section>
@@ -230,7 +236,7 @@
               </div>
               <div class="contact-dialog__body">
                 <p class="contact-dialog__intro">
-                  To celebrate the launch of my new venture, I’m offering a limited number of complimentary strategy sessions. Fill in your details to reserve your spot:
+                  To celebrate the launch of my new venture, we are offering a limited number of complimentary Microsoft Copilot sessions. Join the waitlist by completing the form below.
                 </p>
                 <form
                   class="contact-form"
@@ -252,8 +258,8 @@
                     autocomplete="off"
                   >
                   <div class="contact-form__row">
-                    <label class="contact-form__field" for="complimentary-name">
-                      <span class="visually-hidden">Name*</span>
+                    <label class="contact-form__field" for="complimentary-first-name">
+                      <span class="visually-hidden">First Name*</span>
                       <span class="contact-form__control">
                         <span class="contact-form__icon" aria-hidden="true">
                           <svg viewBox="0 0 24 24" focusable="false">
@@ -262,28 +268,20 @@
                           </svg>
                         </span>
                         <span class="contact-form__divider" aria-hidden="true"></span>
-                        <input id="complimentary-name" name="name" type="text" required autocomplete="name" placeholder="Name*">
+                        <input id="complimentary-first-name" name="firstName" type="text" required autocomplete="given-name" placeholder="First Name*">
                       </span>
                     </label>
-                    <label class="contact-form__field" for="complimentary-job-title">
-                      <span class="visually-hidden">Job Title*</span>
+                    <label class="contact-form__field" for="complimentary-surname">
+                      <span class="visually-hidden">Surname*</span>
                       <span class="contact-form__control">
                         <span class="contact-form__icon" aria-hidden="true">
                           <svg viewBox="0 0 24 24" focusable="false">
-                            <path d="M4 19.5h16"></path>
-                            <path d="M7 19.5v-9h10v9"></path>
-                            <path d="M9 10.5V7.2A1.7 1.7 0 0 1 10.7 5.5h2.6A1.7 1.7 0 0 1 15 7.2v3.3"></path>
+                            <circle cx="12" cy="8" r="3.5"></circle>
+                            <path d="M5 20c0-3.5 2.8-6.2 7-6.2s7 2.7 7 6.2"></path>
                           </svg>
                         </span>
                         <span class="contact-form__divider" aria-hidden="true"></span>
-                        <input
-                          id="complimentary-job-title"
-                          name="jobTitle"
-                          type="text"
-                          required
-                          autocomplete="organization-title"
-                          placeholder="Job Title*"
-                        >
+                        <input id="complimentary-surname" name="surname" type="text" required autocomplete="family-name" placeholder="Surname*">
                       </span>
                     </label>
                   </div>
@@ -311,6 +309,35 @@
                         </span>
                         <span class="contact-form__divider" aria-hidden="true"></span>
                         <input id="complimentary-phone" name="phone" type="tel" required autocomplete="tel" placeholder="Phone*">
+                      </span>
+                    </label>
+                  </div>
+                  <div class="contact-form__row">
+                    <label class="contact-form__field" for="complimentary-job-title">
+                      <span class="visually-hidden">Job Title*</span>
+                      <span class="contact-form__control">
+                        <span class="contact-form__icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M4 19.5h16"></path>
+                            <path d="M7 19.5v-9h10v9"></path>
+                            <path d="M9 10.5V7.2A1.7 1.7 0 0 1 10.7 5.5h2.6A1.7 1.7 0 0 1 15 7.2v3.3"></path>
+                          </svg>
+                        </span>
+                        <span class="contact-form__divider" aria-hidden="true"></span>
+                        <input id="complimentary-job-title" name="jobTitle" type="text" required autocomplete="organization-title" placeholder="Job Title*">
+                      </span>
+                    </label>
+                    <label class="contact-form__field" for="complimentary-industry">
+                      <span class="visually-hidden">Industry*</span>
+                      <span class="contact-form__control">
+                        <span class="contact-form__icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <rect x="3" y="7" width="18" height="13" rx="1.5"></rect>
+                            <path d="M8 7V5a1.5 1.5 0 0 1 1.5-1.5h5A1.5 1.5 0 0 1 16 5v2"></path>
+                          </svg>
+                        </span>
+                        <span class="contact-form__divider" aria-hidden="true"></span>
+                        <input id="complimentary-industry" name="industry" type="text" required autocomplete="organization" placeholder="Industry*">
                       </span>
                     </label>
                   </div>
@@ -386,11 +413,6 @@
               </div>
             </div>
           </dialog>
-        </div>
-        <div class="container contact-register-row">
-          <button class="button button--primary" type="button" data-complimentary-trigger>
-            Register for a complimentary Copilot intro session
-          </button>
         </div>
       </section>
     </main>
