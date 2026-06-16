@@ -631,6 +631,19 @@ p {
   padding-top: 1rem;
 }
 
+.industries-intro {
+  padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.industries-beyond {
+  padding-top: clamp(2rem, 4vw, 3rem);
+  padding-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.industries-beyond-image {
+  padding-top: 0;
+}
+
 .section-heading {
   max-width: 42rem;
   margin-bottom: 2rem;
@@ -639,6 +652,10 @@ p {
 .content-image {
   max-width: 48rem;
   margin: 2rem auto 0;
+}
+
+.industries-beyond-image .content-image {
+  margin-top: 0;
 }
 
 .content-image img {
