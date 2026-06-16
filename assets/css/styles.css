@@ -1370,13 +1370,13 @@ p {
     grid-auto-rows: auto;
   }
 
+  .about-gallery__item {
+    aspect-ratio: 4 / 3;
+  }
+
   .about-gallery__item--featured {
     grid-row: auto;
     aspect-ratio: 3 / 4;
-  }
-
-  .about-gallery__item {
-    aspect-ratio: 4 / 3;
   }
 }
 
