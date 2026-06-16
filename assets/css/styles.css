@@ -637,12 +637,14 @@ p {
 }
 
 .content-image {
-  margin-top: 2rem;
+  max-width: 48rem;
+  margin: 2rem auto 0;
 }
 
 .content-image img {
   border-radius: 0.75rem;
   width: 100%;
+  height: auto;
 }
 
 .split {
