@@ -1372,6 +1372,7 @@ p {
 
   .about-gallery__item--featured {
     grid-row: auto;
+    aspect-ratio: 3 / 4;
   }
 
   .about-gallery__item {
