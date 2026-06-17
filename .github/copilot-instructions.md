@@ -1,5 +1,10 @@
 # Copilot Instructions
 
+## Pull requests
+
+- For any task that results in repository changes committed to a branch, open or update a pull request before considering the task complete.
+- Include a concise summary of the changes in the pull request description and add any available Cloudflare Pages preview link.
+
 ## Images
 
 - Always store image files in the `assets/images/` directory and reference them with a relative path (e.g. `assets/images/my-image.png`).
