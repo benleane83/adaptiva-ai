@@ -130,7 +130,10 @@ function deriveDisplayName(fields) {
 }
 
 function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  // Validates the shape of an email address (local@domain.tld).
+  // Accepts plus-addressing and subdomain dots; rejects missing local-part,
+  // missing domain, or a bare domain with no TLD dot.
+  return /^[^\s@"(),[\]\\]+@[^\s@.]+(\.[^\s@.]+)+$/.test(email);
 }
 
 function escapeHtml(str) {
