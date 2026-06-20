@@ -230,9 +230,6 @@ function buildHtmlBody(name) {
                 Thank you for reaching out to <strong>Adaptiva AI</strong>.
                 We&rsquo;ve received your message and will be in touch as soon as possible.
               </p>
-              <p style="margin:0 0 24px;font-size:16px;line-height:1.6;">
-                If your request is urgent, feel free to reply directly to this email.
-              </p>
               <table role="presentation" cellspacing="0" cellpadding="0">
                 <tr>
                   <td style="border-radius:8px;background:#2563eb;">
@@ -267,8 +264,6 @@ function buildTextBody(name) {
   return `Hi ${name},
 
 Thank you for reaching out to Adaptiva AI. We've received your message and will be in touch as soon as possible.
-
-If your request is urgent, simply reply to this email.
 
 Kind regards,
 Adaptiva AI Team
