@@ -225,7 +225,7 @@ function buildHtmlBody(name) {
           </tr>
           <tr>
             <td style="padding:28px 24px 24px;">
-              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">Hello ${safeFirstName}</p>
+              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">Hello ${safeFirstName},</p>
               <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">
                 Thank you for registering your interest in a complimentary Microsoft 365 Copilot introductory session.
                 We have received your details and will be in touch once the session date is confirmed.
@@ -258,7 +258,7 @@ function buildHtmlBody(name) {
 
 function buildTextBody(name) {
   const firstName = deriveFirstName(name);
-  return `Hello ${firstName}
+  return `Hello ${firstName},
 
 Thank you for registering your interest in a complimentary Microsoft 365 Copilot introductory session. We have received your details and will be in touch once the session date is confirmed.
 
