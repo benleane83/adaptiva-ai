@@ -214,7 +214,7 @@ async function sendAutoReply({ name, email, env }) {
 // ─── Email templates ───────────────────────────────────────────────────────────
 
 function buildHtmlBody(name) {
-  const safeName = escapeHtml(name);
+  const safeFirstName = escapeHtml(deriveFirstName(name));
   return `<!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -231,31 +231,27 @@ function buildHtmlBody(name) {
           </tr>
           <tr>
             <td style="padding:28px 24px 24px;">
-              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">Hi ${safeName},</p>
+              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">Hello ${safeFirstName},</p>
               <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">
-                Thank you for reaching out to <strong>Adaptiva AI</strong>.
-                We&rsquo;ve received your message and will be in touch as soon as possible.
+                Thank you for registering your interest in a complimentary Microsoft 365 Copilot introductory session.
+                We have received your details and will be in touch once the session date is confirmed.
               </p>
-              <table role="presentation" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td style="border-radius:8px;background:#2563eb;">
-                    <a href="https://www.adaptivaai.com"
-                       style="display:inline-block;padding:11px 20px;font-size:14px;font-weight:600;color:#ffffff;text-decoration:none;">
-                      Visit our website &rarr;
-                    </a>
-                  </td>
-                </tr>
-              </table>
+              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">
+                For inquiries about any of our other services, please complete the
+                &ldquo;Request a Consultation&rdquo; form on our website.
+              </p>
+              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">
+                We appreciate your interest in Adaptiva AI and look forward to connecting with you.
+              </p>
               <p style="margin:24px 0 0;font-size:14px;color:#374151;line-height:1.6;">
-                Kind regards,<br>
-                <strong>Adaptiva AI Team</strong>
+                Warm regards,<br>
+                <strong>The Adaptiva AI Team</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td style="padding:14px 24px;background:#f9fafb;border-top:1px solid #e5e7eb;font-size:12px;color:#9ca3af;line-height:1.5;">
-              This is an automated acknowledgement of your enquiry. Please do not reply to this message
-              if you did not submit a contact form at <a href="https://adaptivaai.com" style="color:#6b7280;">adaptivaai.com</a>.
+              This is an automated message from Adaptiva AI.
             </td>
           </tr>
         </table>
@@ -267,16 +263,26 @@ function buildHtmlBody(name) {
 }
 
 function buildTextBody(name) {
-  return `Hi ${name},
+  const firstName = deriveFirstName(name);
+  return `Hello ${firstName},
 
-Thank you for reaching out to Adaptiva AI. We've received your message and will be in touch as soon as possible.
+Thank you for registering your interest in a complimentary Microsoft 365 Copilot introductory session. We have received your details and will be in touch once the session date is confirmed.
 
-Kind regards,
-Adaptiva AI Team
-https://adaptivaai.com
+For inquiries about any of our other services, please complete the "Request a Consultation" form on our website.
 
----
-This is an automated acknowledgement of your enquiry.`;
+We appreciate your interest in Adaptiva AI and look forward to connecting with you.
+
+Warm regards,
+
+The Adaptiva AI Team`;
+}
+
+function deriveFirstName(name) {
+  const trimmedName = String(name || "").trim();
+  if (!trimmedName) {
+    return "there";
+  }
+  return trimmedName.split(/\s+/)[0];
 }
 
 function buildInternalNotificationHtml({ fields, name, email, message }) {
