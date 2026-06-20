@@ -93,14 +93,14 @@
             ></iframe>
           </div>
           <aside class="callout contact-callout">
-            <!-- TODO: replace YOUR_CF_ACCOUNT with your Cloudflare subdomain after deploying the Worker (see README.md) -->
             <form
               class="contact-form"
               data-email-form
-              action="https://adaptiva-contact.YOUR_CF_ACCOUNT.workers.dev/contact"
+              action="https://adaptiva-contact.ben-leane.workers.dev/contact"
               method="post"
             >
               <input type="hidden" name="from_name" value="Adaptiva AI website">
+              <input type="hidden" name="form_id" value="contact">
               <input
                 type="checkbox"
                 name="botcheck"
@@ -243,14 +243,14 @@
                 <p class="contact-dialog__intro">
                   To celebrate the launch of my new venture, we are offering a limited number of complimentary Microsoft Copilot sessions. Join the waitlist by completing the form below.
                 </p>
-                <!-- TODO: replace YOUR_CF_ACCOUNT with your Cloudflare subdomain after deploying the Worker (see README.md) -->
                 <form
                   class="contact-form"
                   data-email-form="complimentary-session"
-                  action="https://adaptiva-contact.YOUR_CF_ACCOUNT.workers.dev/contact"
+                  action="https://adaptiva-contact.ben-leane.workers.dev/contact"
                   method="post"
                 >
                   <input type="hidden" name="from_name" value="Adaptiva AI website">
+                  <input type="hidden" name="form_id" value="complimentary_session">
                   <input
                     type="checkbox"
                     name="botcheck"

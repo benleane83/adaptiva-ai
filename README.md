@@ -10,7 +10,7 @@ The contact forms on the site post to a **Cloudflare Worker** (`worker/contact-w
 
 1. Validates the submission server-side.
 2. Checks honeypot / botcheck fields and silently discards spam.
-3. Forwards the submission to **Web3Forms** (keeps it visible in the Web3Forms dashboard).
+3. Sends a structured notification email to **info@adaptivaai.com** via **Resend**.
 4. Sends an HTML + plain-text acknowledgement email to the submitter via **Resend**.
 
 All API keys are stored as Worker secrets — none are exposed in the browser.
@@ -26,8 +26,7 @@ All API keys are stored as Worker secrets — none are exposed in the browser.
 | Node.js ≥ 18 | [nodejs.org](https://nodejs.org) |
 | Wrangler CLI | `npm install -g wrangler` |
 | Cloudflare account | [dash.cloudflare.com](https://dash.cloudflare.com) |
-| Web3Forms account | [web3forms.com](https://web3forms.com) |
-| Resend account *(optional for now)* | [resend.com](https://resend.com) |
+| Resend account | [resend.com](https://resend.com) |
 
 ---
 
@@ -44,17 +43,11 @@ wrangler login
 Secrets are **never** committed to the repository. Run the following from the repo root:
 
 ```bash
-# Required — your Web3Forms access key (from web3forms.com/dashboard)
-wrangler secret put WEB3FORMS_ACCESS_KEY
-
-# Optional for now — add when you have a Resend API key
-# Without this the worker still forwards to Web3Forms; auto-replies are skipped
+# Required — enables internal notifications + submitter auto-reply
 wrangler secret put RESEND_API_KEY
 ```
 
-> **RESEND_API_KEY placeholder**: Leave this unset until you have created a Resend account
-> and verified your sending domain (see [DNS setup](#dns--sender-verification) below).
-> The worker detects the missing key and skips auto-replies gracefully.
+> The worker uses `RESEND_API_KEY` for both internal notification emails and auto-replies.
 
 ---
 
@@ -64,6 +57,7 @@ Non-secret configuration lives in `wrangler.toml` under `[vars]`:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
+| `NOTIFICATION_TO_EMAIL` | `info@adaptivaai.com` | Recipient for internal form notifications |
 | `FROM_EMAIL` | `Adaptiva AI <info@adaptivaai.com>` | Sender shown in auto-replies |
 | `REPLY_TO_EMAIL` | `info@adaptivaai.com` | Reply-to address in auto-replies |
 | `ALLOWED_ORIGIN` | `*` | CORS origin — set to `https://adaptivaai.com` for production |
@@ -150,12 +144,20 @@ npm install -g wrangler
 wrangler dev worker/contact-worker.js
 ```
 
-Test with curl:
+Test with curl (Bash):
 
 ```bash
 curl -X POST http://localhost:8787/contact \
   -H "Content-Type: application/json" \
-  -d '{"name":"Test User","email":"test@example.com","message":"Hello"}'
+  -d '{"form_id":"contact","name":"Test User","email":"test@example.com","message":"Hello"}'
+```
+
+Test in PowerShell:
+
+```powershell
+curl.exe -X POST http://localhost:8787/contact `
+  -H "Content-Type: application/json" `
+  -d '{"form_id":"contact","name":"Test User","email":"test@example.com","message":"Hello"}'
 ```
 
 Expected response:
@@ -170,8 +172,8 @@ Expected response:
 
 | Secret / Variable | Required | Description |
 |-------------------|----------|-------------|
-| `WEB3FORMS_ACCESS_KEY` | **Yes** | Web3Forms access key — stored as Worker secret |
-| `RESEND_API_KEY` | No (placeholder) | Resend API key — add when ready; auto-replies are skipped without it |
+| `RESEND_API_KEY` | **Yes** | Resend API key used for internal notifications and submitter auto-replies |
+| `NOTIFICATION_TO_EMAIL` | No | Internal notification recipient (default: `info@adaptivaai.com`) |
 | `FROM_EMAIL` | No | Sender address for auto-replies (default: `Adaptiva AI <info@adaptivaai.com>`) |
 | `REPLY_TO_EMAIL` | No | Reply-to address (default: `info@adaptivaai.com`) |
 | `ALLOWED_ORIGIN` | No | CORS origin restriction (default: `*`) |

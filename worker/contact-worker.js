@@ -4,14 +4,14 @@
  * Handles POST submissions from the website contact forms.
  * - Validates required fields and email format
  * - Checks honeypot/botcheck fields for spam
- * - Forwards submission to Web3Forms (server-side key — no client exposure)
+ * - Sends a structured internal notification email via Resend
  * - Sends an HTML/text acknowledgement email to the submitter via Resend
  *
  * Required secrets/variables (set with `wrangler secret put` or in the dashboard):
- *   WEB3FORMS_ACCESS_KEY  — Web3Forms access key (secret)
  *   RESEND_API_KEY        — Resend API key (secret) — see README.md for setup
  *
  * Optional environment variables (set in wrangler.toml [vars] or dashboard):
+ *   NOTIFICATION_TO_EMAIL  — Recipient for internal notifications (defaults to info@adaptivaai.com)
  *   FROM_EMAIL            — Sender address, e.g. "Adaptiva AI <info@adaptivaai.com>"
  *   REPLY_TO_EMAIL        — Reply-to address, e.g. "info@adaptivaai.com"
  *   ALLOWED_ORIGIN        — CORS origin, e.g. "https://adaptivaai.com" (defaults to *)
@@ -59,31 +59,12 @@ export default {
       return jsonResponse({ success: false, message: "Message is required" }, 400, origin);
     }
 
-    // Forward to Web3Forms
-    let web3Success = false;
-    let web3Error   = null;
+    // Send structured internal notification (required)
     try {
-      await forwardToWeb3Forms(fields, env);
-      web3Success = true;
+      await sendInternalNotification({ fields, name, email, message, env });
     } catch (err) {
-      web3Error = String(err?.message ?? err);
-      console.error("[contact-worker] Web3Forms error:", web3Error);
-    }
-
-    // Send auto-reply via Resend
-    let resendSuccess = false;
-    let resendError   = null;
-    try {
-      await sendAutoReply({ name, email, env });
-      resendSuccess = true;
-    } catch (err) {
-      resendError = String(err?.message ?? err);
-      console.error("[contact-worker] Resend error:", resendError);
-    }
-
-    // Both failed — surface a generic error without leaking internals
-    if (!web3Success && !resendSuccess) {
-      console.error("[contact-worker] Both services failed.", { web3Error, resendError });
+      const notificationError = String(err?.message ?? err);
+      console.error("[contact-worker] Notification email error:", notificationError);
       return jsonResponse(
         { success: false, message: "The form service is unavailable right now. Please try again later." },
         503,
@@ -91,7 +72,14 @@ export default {
       );
     }
 
-    // Partial failures are logged above but we return success to the user
+    // Send auto-reply via Resend (best effort)
+    try {
+      await sendAutoReply({ name, email, env });
+    } catch (err) {
+      const resendError = String(err?.message ?? err);
+      console.error("[contact-worker] Auto-reply error:", resendError);
+    }
+
     return jsonResponse({ success: true }, 200, origin);
   }
 };
@@ -145,36 +133,39 @@ function escapeHtml(str) {
     .replaceAll("'", "&#039;");
 }
 
-// ─── Web3Forms forwarding ──────────────────────────────────────────────────────
+// ─── Resend emails ──────────────────────────────────────────────────────────────
 
-async function forwardToWeb3Forms(fields, env) {
-  if (!env.WEB3FORMS_ACCESS_KEY) {
-    throw new Error("WEB3FORMS_ACCESS_KEY is not configured");
+async function sendInternalNotification({ fields, name, email, message, env }) {
+  if (!env.RESEND_API_KEY) {
+    throw new Error("RESEND_API_KEY is not configured");
   }
 
-  // Build a clean copy of the submission with the server-side access key
-  const payload = { ...fields };
+  const from = env.FROM_EMAIL || "Adaptiva AI <info@adaptivaai.com>";
+  const replyTo = env.REPLY_TO_EMAIL || "info@adaptivaai.com";
+  const notifyTo = env.NOTIFICATION_TO_EMAIL || "info@adaptivaai.com";
+  const formId = String(fields.form_id || fields.formId || "contact").trim();
 
-  // Remove internal/honeypot fields that Web3Forms doesn't need
-  delete payload.botcheck;
-  delete payload.company;
+  const emailPayload = {
+    from,
+    to: [notifyTo],
+    reply_to: replyTo,
+    subject: `New website enquiry (${formId}) from ${name}`,
+    html: buildInternalNotificationHtml({ fields, name, email, message }),
+    text: buildInternalNotificationText({ fields, name, email, message })
+  };
 
-  payload.access_key = env.WEB3FORMS_ACCESS_KEY;
-
-  const response = await fetch("https://api.web3forms.com/submit", {
+  const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(payload)
+    headers: {
+      Authorization: "Bearer " + env.RESEND_API_KEY,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(emailPayload)
   });
 
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`Web3Forms responded ${response.status}: ${body}`);
-  }
-
-  const result = await response.json();
-  if (!result.success) {
-    throw new Error(`Web3Forms rejected submission: ${result.message}`);
+    throw new Error(`Resend responded ${response.status}: ${body}`);
   }
 }
 
@@ -245,7 +236,7 @@ function buildHtmlBody(name) {
               <table role="presentation" cellspacing="0" cellpadding="0">
                 <tr>
                   <td style="border-radius:8px;background:#2563eb;">
-                    <a href="https://adaptivaai.com"
+                    <a href="https://www.adaptivaai.com"
                        style="display:inline-block;padding:11px 20px;font-size:14px;font-weight:600;color:#ffffff;text-decoration:none;">
                       Visit our website &rarr;
                     </a>
@@ -285,6 +276,58 @@ https://adaptivaai.com
 
 ---
 This is an automated acknowledgement of your enquiry.`;
+}
+
+function buildInternalNotificationHtml({ fields, name, email, message }) {
+  const submittedAt = new Date().toISOString();
+  const rows = Object.entries(fields)
+    .filter(([key]) => key !== "botcheck" && key !== "company")
+    .map(([key, value]) => {
+      return `<tr><td style="padding:8px 10px;border:1px solid #e5e7eb;font-weight:600;background:#f8fafc;">${escapeHtml(key)}</td><td style="padding:8px 10px;border:1px solid #e5e7eb;">${escapeHtml(value)}</td></tr>`;
+    })
+    .join("");
+
+  return `<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:20px;background:#f6f8fb;font-family:Arial,Helvetica,sans-serif;color:#1f2937;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;margin:0 auto;background:#ffffff;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
+    <tr>
+      <td style="background:#0f172a;padding:16px 20px;color:#ffffff;font-size:18px;font-weight:700;">New Contact Form Submission</td>
+    </tr>
+    <tr>
+      <td style="padding:18px 20px;">
+        <p style="margin:0 0 10px;"><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p style="margin:0 0 10px;"><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p style="margin:0 0 10px;"><strong>Message:</strong><br>${escapeHtml(message)}</p>
+        <p style="margin:0 0 16px;"><strong>Submitted:</strong> ${escapeHtml(submittedAt)}</p>
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+          ${rows}
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+}
+
+function buildInternalNotificationText({ fields, name, email, message }) {
+  const submittedAt = new Date().toISOString();
+  const lines = Object.entries(fields)
+    .filter(([key]) => key !== "botcheck" && key !== "company")
+    .map(([key, value]) => `${key}: ${String(value ?? "")}`);
+
+  return [
+    "New Contact Form Submission",
+    "",
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Message: ${message}`,
+    `Submitted: ${submittedAt}`,
+    "",
+    "All Fields:",
+    ...lines
+  ].join("\n");
 }
 
 // ─── Response helpers ──────────────────────────────────────────────────────────
