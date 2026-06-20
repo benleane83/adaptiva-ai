@@ -145,11 +145,17 @@ async function sendInternalNotification({ fields, name, email, message, env }) {
   const notifyTo = env.NOTIFICATION_TO_EMAIL || "info@adaptivaai.com";
   const formId = String(fields.form_id || fields.formId || "contact").trim();
 
+  const subjectMap = {
+    complimentary_session: `Complimentary session from ${name}`,
+    contact: `Request for consultation from ${name}`
+  };
+  const subject = subjectMap[formId] ?? `Request for consultation from ${name}`;
+
   const emailPayload = {
     from,
     to: [notifyTo],
     reply_to: replyTo,
-    subject: `New website enquiry (${formId}) from ${name}`,
+    subject,
     html: buildInternalNotificationHtml({ fields, name, email, message }),
     text: buildInternalNotificationText({ fields, name, email, message })
   };
