@@ -272,8 +272,11 @@ The Adaptiva AI Team`;
 }
 
 function deriveFirstName(name) {
-  const firstName = String(name || "").trim().split(/\s+/)[0];
-  return firstName || "there";
+  const trimmedName = String(name || "").trim();
+  if (!trimmedName) {
+    return "there";
+  }
+  return trimmedName.split(/\s+/)[0];
 }
 
 function buildInternalNotificationHtml({ fields, name, email, message }) {
