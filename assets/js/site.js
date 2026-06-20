@@ -87,12 +87,6 @@ document.querySelectorAll("[data-email-form]").forEach((contactEmailForm) => {
     }
 
     const formData = new FormData(contactEmailForm);
-    const accessKey = String(formData.get("access_key") || "").trim();
-
-    if (!accessKey) {
-      setStatus("This form is temporarily unavailable. Please email info@adaptivaai.com directly.");
-      return;
-    }
 
     setStatus("");
 

@@ -1,0 +1,15 @@
+name             = "adaptiva-contact"
+main             = "worker/contact-worker.js"
+compatibility_date = "2025-06-01"
+
+# Environment variables (non-sensitive). Set/override these in the Cloudflare
+# dashboard or via `wrangler deploy --var KEY:VALUE` if you prefer.
+[vars]
+NOTIFICATION_TO_EMAIL = "info@adaptivaai.com"
+FROM_EMAIL      = "Adaptiva AI <info@adaptivaai.com>"
+REPLY_TO_EMAIL  = "info@adaptivaai.com"
+# Restrict to your production domain in production, e.g. "https://adaptivaai.com"
+ALLOWED_ORIGIN  = "*"
+
+# Secrets — store these with `wrangler secret put <NAME>` (never in this file):
+#   RESEND_API_KEY        — your Resend API key (required; see README.md)

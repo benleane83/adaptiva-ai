@@ -96,21 +96,26 @@
             <form
               class="contact-form"
               data-email-form
-              action="https://api.web3forms.com/submit"
+              action="https://adaptiva-contact.ben-leane.workers.dev/contact"
               method="post"
             >
-              <input
-                type="hidden"
-                name="access_key"
-                value="5b018a2e-2822-4109-8329-508b82f9531a"
-              >
               <input type="hidden" name="from_name" value="Adaptiva AI website">
+              <input type="hidden" name="form_id" value="contact">
               <input
                 type="checkbox"
                 name="botcheck"
                 class="visually-hidden"
                 tabindex="-1"
                 autocomplete="off"
+              >
+              <!-- Honeypot — leave empty; bots that fill this are silently discarded -->
+              <input
+                type="text"
+                name="company"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"
               >
               <div class="contact-form__row">
                 <label class="contact-form__field" for="contact-name">
@@ -241,21 +246,26 @@
                 <form
                   class="contact-form"
                   data-email-form="complimentary-session"
-                  action="https://api.web3forms.com/submit"
+                  action="https://adaptiva-contact.ben-leane.workers.dev/contact"
                   method="post"
                 >
-                  <input
-                    type="hidden"
-                    name="access_key"
-                    value="5afa9fd7-f544-46d6-8817-8241c1ae9338"
-                  >
                   <input type="hidden" name="from_name" value="Adaptiva AI website">
+                  <input type="hidden" name="form_id" value="complimentary_session">
                   <input
                     type="checkbox"
                     name="botcheck"
                     class="visually-hidden"
                     tabindex="-1"
                     autocomplete="off"
+                  >
+                  <!-- Honeypot — leave empty; bots that fill this are silently discarded -->
+                  <input
+                    type="text"
+                    name="company"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                    style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"
                   >
                   <div class="contact-form__row">
                     <label class="contact-form__field" for="complimentary-first-name">
