@@ -977,6 +977,10 @@ p {
   min-height: 100%;
 }
 
+.industry-card .card__tag {
+  background: var(--color-gold);
+}
+
 .industry-card h3 {
   margin-bottom: 0.65rem;
 }
