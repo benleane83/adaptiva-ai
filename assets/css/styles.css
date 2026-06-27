@@ -1072,7 +1072,13 @@ p {
   text-align: center;
 }
 
-.contact-register-panel .lede {
+.contact-hero__lede {
+  max-width: 58rem;
+}
+
+.contact-register-panel__lede {
+  max-width: 58rem;
+  margin-inline: auto;
   margin-bottom: 1.25rem;
 }
 
