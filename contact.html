@@ -85,33 +85,9 @@
               Get in touch to book a consultation, ask about services, or explore how Adaptiva AI
               can help your organisation on its AI journey.
             </p>
-            <p class="lede">
-              For a limited time, we are offering complimentary Microsoft 365 Copilot introductory sessions.
-            </p>
-            <button class="button button--primary" type="button" data-complimentary-trigger>
-              Register for a complimentary Copilot intro session
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--tight">
-        <div class="container split">
-          <div class="contact-map-wrap">
-            <iframe
-              src="https://maps.google.com/maps?q=Avani+Palm+View+Dubai+Hotel+%26+Suites&hl=en&z=15&output=embed"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Avani Palm View Dubai Hotel &amp; Suites location"
-            ></iframe>
-          </div>
-          <aside class="callout contact-callout">
+            <aside class="callout contact-callout contact-callout--hero">
             <form
-              class="contact-form"
+              class="contact-form contact-form--hero"
               data-email-form
               action="https://adaptiva-contact.ben-leane.workers.dev/contact"
               method="post"
@@ -134,7 +110,7 @@
                 aria-hidden="true"
                 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"
               >
-              <div class="contact-form__row">
+              <div class="contact-form__row contact-form__row--three">
                 <label class="contact-form__field" for="contact-name">
                   <span class="visually-hidden">Name*</span>
                   <span class="contact-form__control">
@@ -172,8 +148,6 @@
                     >
                   </span>
                 </label>
-              </div>
-              <div class="contact-form__row contact-form__row--full">
                 <label class="contact-form__field" for="contact-subject">
                   <span class="visually-hidden">Subject*</span>
                   <span class="contact-form__control">
@@ -239,8 +213,25 @@
               </p>
               <p class="note contact-form__fallback" data-form-status aria-live="polite"></p>
             </form>
-          </aside>
-          <dialog class="video-dialog contact-dialog" aria-labelledby="complimentary-dialog-title" data-complimentary-dialog>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="register">
+        <div class="container">
+          <div class="cta-panel contact-register-panel">
+            <p class="lede">
+              For a limited time, we are offering complimentary Microsoft 365 Copilot introductory sessions.
+            </p>
+            <button class="button button--primary" type="button" data-complimentary-trigger>
+              Register for a complimentary Copilot intro session
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <dialog class="video-dialog contact-dialog" aria-labelledby="complimentary-dialog-title" data-complimentary-dialog>
             <div class="video-dialog__panel contact-dialog__panel">
               <div class="video-dialog__header">
                 <div>
@@ -439,9 +430,7 @@
                 </form>
               </div>
             </div>
-          </dialog>
-        </div>
-      </section>
+      </dialog>
     </main>
 
     <footer class="site-footer">
