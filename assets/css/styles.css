@@ -1066,6 +1066,21 @@ p {
   width: auto;
   justify-self: start;
   min-width: 16rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  font-size: 1.32rem;
+}
+
+.contact-form--hero .contact-form__field textarea {
+  min-height: 4.1rem;
+}
+
+.contact-form--hero .contact-form__control--message {
+  min-height: 5.4rem;
+}
+
+.contact-form--hero .contact-form__fallback {
+  margin-top: 0;
 }
 
 .contact-register-panel {
