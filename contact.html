@@ -111,8 +111,8 @@
                 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"
               >
               <div class="contact-form__row contact-form__row--three">
-                <label class="contact-form__field" for="contact-name">
-                  <span class="visually-hidden">Name*</span>
+                <label class="contact-form__field" for="contact-first-name">
+                  <span class="visually-hidden">First Name*</span>
                   <span class="contact-form__control">
                     <span class="contact-form__icon" aria-hidden="true">
                       <svg viewBox="0 0 24 24" focusable="false">
@@ -121,7 +121,61 @@
                       </svg>
                     </span>
                     <span class="contact-form__divider" aria-hidden="true"></span>
-                    <input id="contact-name" name="name" type="text" required autocomplete="name" placeholder="Name*">
+                    <input
+                      id="contact-first-name"
+                      name="firstName"
+                      type="text"
+                      required
+                      autocomplete="given-name"
+                      placeholder="First Name*"
+                    >
+                  </span>
+                </label>
+                <label class="contact-form__field" for="contact-surname">
+                  <span class="visually-hidden">Surname*</span>
+                  <span class="contact-form__control">
+                    <span class="contact-form__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <circle cx="12" cy="8" r="3.5"></circle>
+                        <path d="M5 20c0-3.5 2.8-6.2 7-6.2s7 2.7 7 6.2"></path>
+                      </svg>
+                    </span>
+                    <span class="contact-form__divider" aria-hidden="true"></span>
+                    <input
+                      id="contact-surname"
+                      name="surname"
+                      type="text"
+                      required
+                      autocomplete="family-name"
+                      placeholder="Surname*"
+                    >
+                  </span>
+                </label>
+                <label class="contact-form__field" for="contact-email">
+                  <span class="visually-hidden">Email*</span>
+                  <span class="contact-form__control">
+                    <span class="contact-form__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <rect x="3.5" y="6" width="17" height="12" rx="2"></rect>
+                        <path d="m4.5 7 7.5 6 7.5-6"></path>
+                      </svg>
+                    </span>
+                    <span class="contact-form__divider" aria-hidden="true"></span>
+                    <input id="contact-email" name="email" type="email" required autocomplete="email" placeholder="Email*">
+                  </span>
+                </label>
+              </div>
+              <div class="contact-form__row contact-form__row--three">
+                <label class="contact-form__field" for="contact-phone">
+                  <span class="visually-hidden">Phone*</span>
+                  <span class="contact-form__control">
+                    <span class="contact-form__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path d="m7.5 4 3.1 3.1-1.8 2.7c1 1.8 2.5 3.3 4.2 4.2l2.7-1.8L19 15.5l-2.5 4c-5.9-1.5-10.5-6.1-12-12z"></path>
+                      </svg>
+                    </span>
+                    <span class="contact-form__divider" aria-hidden="true"></span>
+                    <input id="contact-phone" name="phone" type="tel" required autocomplete="tel" placeholder="Phone*">
                   </span>
                 </label>
                 <label class="contact-form__field" for="contact-organization">
@@ -148,8 +202,8 @@
                     >
                   </span>
                 </label>
-                <label class="contact-form__field" for="contact-subject">
-                  <span class="visually-hidden">Subject*</span>
+                <label class="contact-form__field" for="contact-role">
+                  <span class="visually-hidden">Role*</span>
                   <span class="contact-form__control">
                     <span class="contact-form__icon" aria-hidden="true">
                       <svg viewBox="0 0 24 24" focusable="false">
@@ -158,34 +212,7 @@
                       </svg>
                     </span>
                     <span class="contact-form__divider" aria-hidden="true"></span>
-                    <input id="contact-subject" name="subject" type="text" required placeholder="Subject*">
-                  </span>
-                </label>
-              </div>
-              <div class="contact-form__row">
-                <label class="contact-form__field" for="contact-email">
-                  <span class="visually-hidden">Email*</span>
-                  <span class="contact-form__control">
-                    <span class="contact-form__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" focusable="false">
-                        <rect x="3.5" y="6" width="17" height="12" rx="2"></rect>
-                        <path d="m4.5 7 7.5 6 7.5-6"></path>
-                      </svg>
-                    </span>
-                    <span class="contact-form__divider" aria-hidden="true"></span>
-                    <input id="contact-email" name="email" type="email" required autocomplete="email" placeholder="Email*">
-                  </span>
-                </label>
-                <label class="contact-form__field" for="contact-phone">
-                  <span class="visually-hidden">Phone*</span>
-                  <span class="contact-form__control">
-                    <span class="contact-form__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" focusable="false">
-                        <path d="m7.5 4 3.1 3.1-1.8 2.7c1 1.8 2.5 3.3 4.2 4.2l2.7-1.8L19 15.5l-2.5 4c-5.9-1.5-10.5-6.1-12-12z"></path>
-                      </svg>
-                    </span>
-                    <span class="contact-form__divider" aria-hidden="true"></span>
-                    <input id="contact-phone" name="phone" type="tel" required autocomplete="tel" placeholder="Phone*">
+                    <input id="contact-role" name="role" type="text" required autocomplete="organization-title" placeholder="Role*">
                   </span>
                 </label>
               </div>
@@ -205,7 +232,7 @@
                   </span>
                 </label>
               </div>
-              <button class="button button--primary contact-form__submit" type="submit">
+              <button class="button button--primary contact-form__submit contact-button--unified" type="submit">
                 Request Consultation
               </button>
               <p class="note contact-form__fallback">
@@ -224,7 +251,7 @@
             <p class="lede contact-register-panel__lede">
               For a limited time, we are offering complimentary Microsoft 365 Copilot introductory sessions.
             </p>
-            <button class="button button--primary" type="button" data-complimentary-trigger>
+            <button class="button button--primary contact-button--unified" type="button" data-complimentary-trigger>
               Register for a complimentary Copilot intro session
             </button>
           </div>

@@ -1069,6 +1069,22 @@ p {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
   font-size: 1.32rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.contact-button--unified {
+  border-color: var(--color-contact-button);
+  border-radius: 0.72rem;
+  background: var(--color-contact-button);
+  color: var(--color-navy-strong);
+  font-family: inherit;
+}
+
+.contact-button--unified:hover {
+  border-color: var(--color-contact-button-hover);
+  background: var(--color-contact-button-hover);
+  color: var(--color-navy-strong);
 }
 
 .contact-form--hero .contact-form__field textarea {
