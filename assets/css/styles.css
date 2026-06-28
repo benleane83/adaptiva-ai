@@ -1100,7 +1100,9 @@ p {
 }
 
 .contact-register-panel {
-  text-align: center;
+  text-align: left;
+  padding-left: clamp(1.5rem, 3vw, 2rem);
+  padding-right: clamp(1.5rem, 3vw, 2rem);
 }
 
 .contact-hero__lede {
@@ -1109,7 +1111,7 @@ p {
 
 .contact-register-panel__lede {
   max-width: 58rem;
-  margin-inline: auto;
+  margin-inline: 0;
   margin-bottom: 1.25rem;
 }
 
