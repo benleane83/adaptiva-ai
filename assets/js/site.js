@@ -229,10 +229,7 @@ if (resourceVideoDialog && resourceVideoPlayer && resourceVideoTriggers.length >
       }
 
       event.preventDefault();
-      const sourceUrl = trigger.href;
-      const separator = sourceUrl.includes("?") ? "&" : "?";
-      const videoUrl = `${sourceUrl}${separator}embed=1`;
-      resourceVideoPlayer.src = videoUrl;
+      resourceVideoPlayer.src = trigger.href;
 
       if (resourceVideoTitle) {
         const videoTitle = trigger.dataset.resourceVideoTitle || "Video Sample";
