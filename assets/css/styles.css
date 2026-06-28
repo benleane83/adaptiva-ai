@@ -1101,8 +1101,8 @@ p {
 
 .contact-register-panel {
   text-align: left;
-  padding-left: clamp(1.5rem, 3vw, 2rem);
-  padding-right: clamp(1.5rem, 3vw, 2rem);
+  padding-left: clamp(2.25rem, 4vw, 2.75rem);
+  padding-right: clamp(2.25rem, 4vw, 2.75rem);
 }
 
 .contact-hero__lede {
