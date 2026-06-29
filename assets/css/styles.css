@@ -615,6 +615,10 @@ p {
   box-shadow: var(--shadow-soft);
 }
 
+.page-hero__panel .lede {
+  text-align: justify;
+}
+
 .section {
   padding: clamp(4rem, 6vw, 5.5rem) 0;
 }
@@ -888,24 +892,6 @@ p {
   padding: clamp(1.35rem, 2.7vw, 2.1rem);
 }
 
-.resources-showcase__header {
-  max-width: 52rem;
-  margin: 0 auto 1.35rem;
-  text-align: center;
-  color: #ffffff;
-}
-
-.resources-showcase__header h2 {
-  margin-bottom: 0.65rem;
-  color: #ffffff;
-  font-size: clamp(2.2rem, 5vw, 4.1rem);
-}
-
-.resources-showcase__header p {
-  margin: 0;
-  font-size: 1.07rem;
-}
-
 .resources-showcase__table {
   margin: 0;
   padding: 0;
@@ -935,9 +921,10 @@ p {
   border-left: 1px solid rgba(212, 175, 106, 0.4);
   color: var(--color-navy-strong);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: clamp(1.65rem, 2.2vw, 2.15rem);
+  font-size: clamp(1.3rem, 1.5vw, 1.85rem);
   font-weight: 700;
   line-height: 1.04;
+  overflow-wrap: break-word;
 }
 
 .resources-showcase__description {
@@ -1663,12 +1650,8 @@ p {
     width: 100%;
   }
 
-  .resources-showcase__header p {
-    font-size: 1rem;
-  }
-
   .resources-showcase__title {
-    font-size: 1.95rem;
+    font-size: 1.65rem;
   }
 
   .footer-meta {
