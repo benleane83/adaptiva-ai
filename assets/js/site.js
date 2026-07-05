@@ -202,3 +202,61 @@ if (videoTrigger && videoDialog && videoPlayer) {
     document.body.classList.remove("video-dialog-open");
   });
 }
+
+const resourceVideoDialog = document.querySelector("[data-resource-video-dialog]");
+const resourceVideoPlayer = document.querySelector("[data-resource-video-player]");
+const resourceVideoTitle = document.querySelector("#resource-video-title");
+const resourceVideoFallback = document.querySelector("[data-resource-video-fallback]");
+const resourceVideoCloseButtons = document.querySelectorAll("[data-resource-video-close]");
+const resourceVideoTriggers = document.querySelectorAll("[data-resource-video-trigger]");
+
+if (resourceVideoDialog && resourceVideoPlayer && resourceVideoTriggers.length > 0) {
+  const closeResourceVideoDialog = () => {
+    if (resourceVideoDialog.open) {
+      resourceVideoDialog.close();
+    }
+  };
+
+  resourceVideoTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      if (typeof resourceVideoDialog.showModal !== "function") {
+        return;
+      }
+
+      const sourcePath = trigger.getAttribute("href");
+      if (!sourcePath || sourcePath.trim().startsWith("#")) {
+        return;
+      }
+
+      event.preventDefault();
+      resourceVideoPlayer.src = trigger.href;
+
+      if (resourceVideoTitle) {
+        const videoTitle = trigger.dataset.resourceVideoTitle || "Video Sample";
+        resourceVideoTitle.textContent = videoTitle;
+      }
+
+      if (resourceVideoFallback) {
+        resourceVideoFallback.href = trigger.href;
+      }
+
+      resourceVideoDialog.showModal();
+      document.body.classList.add("video-dialog-open");
+    });
+  });
+
+  resourceVideoCloseButtons.forEach((button) => {
+    button.addEventListener("click", closeResourceVideoDialog);
+  });
+
+  resourceVideoDialog.addEventListener("click", (event) => {
+    if (event.target === resourceVideoDialog) {
+      closeResourceVideoDialog();
+    }
+  });
+
+  resourceVideoDialog.addEventListener("close", () => {
+    resourceVideoPlayer.src = "about:blank";
+    document.body.classList.remove("video-dialog-open");
+  });
+}
