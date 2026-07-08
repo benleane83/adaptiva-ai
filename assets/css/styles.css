@@ -922,7 +922,7 @@ p {
   border-left: 1px solid rgba(212, 175, 106, 0.4);
   color: var(--color-navy-strong);
   font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: clamp(1.3rem, 1.5vw, 1.85rem);
+  font-size: clamp(1.3rem, 1.5vw, 1.75rem);
   font-weight: 700;
   line-height: 1.04;
   overflow-wrap: break-word;
