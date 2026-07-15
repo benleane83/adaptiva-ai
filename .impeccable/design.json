@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-15T00:00:00Z",
+  "title": "Design System: Adaptiva AI",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#ffffff", "#f8f8f7", "#eef2f7"]
+      },
+      "adaptive-navy": {
+        "role": "primary",
+        "displayName": "Adaptive Navy",
+        "canonical": "#081b3a",
+        "tonalRamp": ["#eef2f7", "#b7c4d8", "#345983", "#22344d", "#081b3a"]
+      },
+      "midnight-ink": {
+        "role": "neutral",
+        "displayName": "Midnight Ink",
+        "canonical": "#0d1b2a",
+        "tonalRamp": ["#5f7087", "#22344d", "#0d1b2a"]
+      },
+      "elevated-gold": {
+        "role": "secondary",
+        "displayName": "Elevated Gold",
+        "canonical": "#d4af6a",
+        "tonalRamp": ["#f7eddc", "#d4af6a", "#c99a4b", "#ac8b3e"]
+      },
+      "current-blue": {
+        "role": "tertiary",
+        "displayName": "Current Blue",
+        "canonical": "#345983",
+        "tonalRamp": ["#eef2f7", "#b7c4d8", "#345983", "#081b3a"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Editorial Promise",
+        "purpose": "Homepage and page-level promises, usually over no more than two lines."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Major section and dialog headings."
+      },
+      "title": {
+        "displayName": "Local Title",
+        "purpose": "Card, tile, and local content headings."
+      },
+      "body": {
+        "displayName": "Practical Body",
+        "purpose": "Plain-language explanations and decision support."
+      },
+      "label": {
+        "displayName": "Navigation Label",
+        "purpose": "Short navigation, metadata, tag, and action text."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-panel",
+        "value": "0 18px 48px rgba(13, 27, 42, 0.08)",
+        "purpose": "Large panels, dropdowns, and image-led containers."
+      },
+      {
+        "name": "ambient-card",
+        "value": "0 12px 30px rgba(13, 27, 42, 0.07)",
+        "purpose": "Repeated content surfaces."
+      },
+      {
+        "name": "interactive-lift",
+        "value": "0 10px 24px rgba(13, 27, 42, 0.12)",
+        "purpose": "Button hover response only."
+      },
+      {
+        "name": "modal-depth",
+        "value": "0 26px 70px rgba(8, 27, 58, 0.34)",
+        "purpose": "Dialogs over a darkened backdrop."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-fast",
+        "value": "180ms ease",
+        "purpose": "Dropdown visibility and small state transitions."
+      },
+      {
+        "name": "state-standard",
+        "value": "200ms ease",
+        "purpose": "Button, navigation toggle, and color transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "680px"
+      },
+      {
+        "name": "gallery-stack",
+        "value": "760px"
+      },
+      {
+        "name": "navigation-stack",
+        "value": "920px"
+      },
+      {
+        "name": "grid-reflow",
+        "value": "1080px"
+      },
+      {
+        "name": "wide-hero",
+        "value": "1400px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The current rounded gold action for primary journeys.",
+      "html": "<button class=\"adaptiva-button adaptiva-button--primary\">Discover your AI journey <span aria-hidden=\"true\">→</span></button>",
+      "css": ".adaptiva-button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.8rem 1.3rem;border:1px solid transparent;border-radius:999px;font:700 .78rem/1.4 Montserrat,Arial,sans-serif;letter-spacing:.06em;background:#d4af6a;color:#0d1b2a;transition:transform .2s ease,background-color .2s ease}.adaptiva-button:hover{background:#c99a4b;transform:translateY(-1px)}.adaptiva-button:focus-visible{outline:3px solid #345983;outline-offset:3px}"
+    },
+    {
+      "name": "Mockup Hero Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Preferred squarer silhouette for future homepage and campaign hero actions inspired by the original mockup.",
+      "html": "<button class=\"mockup-action\">Discover your AI journey <span aria-hidden=\"true\">→</span></button>",
+      "css": ".mockup-action{display:inline-flex;align-items:center;justify-content:center;gap:1rem;min-height:3.25rem;padding:.85rem 1.5rem;border:0;border-radius:.35rem;background:#d4af6a;color:#0d1b2a;font:700 .8rem/1.2 Montserrat,Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;transition:transform .2s ease,background-color .2s ease}.mockup-action:hover{background:#c99a4b;transform:translateY(-1px)}.mockup-action:focus-visible{outline:3px solid #345983;outline-offset:3px}"
+    },
+    {
+      "name": "Content Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "A restrained white content surface for genuinely grouped information.",
+      "html": "<article class=\"adaptiva-card\"><h3>Practical AI adoption</h3><p>Clear guidance shaped around how your organisation works.</p></article>",
+      "css": ".adaptiva-card{max-width:22rem;padding:1.5rem;border:1px solid rgba(13,27,42,.12);border-radius:1.5rem;background:#fff;color:#22344d;font:400 1rem/1.65 Montserrat,Arial,sans-serif;box-shadow:0 12px 30px rgba(13,27,42,.07)}.adaptiva-card h3{margin:0 0 1rem;color:#0d1b2a;font:600 1.52rem/1.12 'Cormorant Garamond','Times New Roman',serif;letter-spacing:-.02em}.adaptiva-card p{margin:0}"
+    },
+    {
+      "name": "Form Control",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "A quiet, structured contact input with a visible focus-within state.",
+      "html": "<label class=\"adaptiva-field\"><span class=\"adaptiva-field__label\">Work email</span><span class=\"adaptiva-field__control\"><input type=\"email\" placeholder=\"name@organisation.com\"></span></label>",
+      "css": ".adaptiva-field{display:grid;gap:.5rem;color:#0d1b2a;font:600 .88rem/1.4 Montserrat,Arial,sans-serif}.adaptiva-field__control{display:flex;align-items:center;min-height:4rem;padding:.9rem 1.1rem;border:1px solid #d7d9de;border-radius:.72rem;background:#f6f6f7}.adaptiva-field__control:focus-within{border-color:#345983;box-shadow:0 0 0 3px rgba(52,89,131,.18)}.adaptiva-field input{width:100%;border:0;outline:0;background:transparent;color:#0d1b2a;font:500 1rem/1.4 Montserrat,Arial,sans-serif}.adaptiva-field input::placeholder{color:#7c818a;opacity:1}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Adaptive Current",
+    "overview": "A calm, assured current that makes complex technology directional, useful, and human. The shipped system uses generous white space, deep navy, restrained gold, blue-grey atmosphere, editorial serif headlines, and practical sans-serif copy. The attached July 2026 original homepage PNG is the primary art-direction reference for recovering a taller cinematic hero, more visible wave depth, stronger navy-and-gold contrast, and more architectural calls to action.",
+    "keyCharacteristics": [
+      "Navy-and-gold adaptive wave imagery as the signature brand asset",
+      "Cormorant Garamond display type paired with Montserrat",
+      "Bright content surfaces contrasted with committed navy moments",
+      "Gold used as a directional contour and action color",
+      "Human outcomes immediately following expressive technology imagery"
+    ],
+    "rules": [
+      {
+        "name": "The Gold Contour Rule",
+        "body": "Gold identifies a meaningful edge, word, action, or transition; it is not general decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mockup Contrast Rule",
+        "body": "Let navy occupy meaningful area and gold cut through it decisively in first-view brand moments.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Line Promise Rule",
+        "body": "The homepage H1 is one clear promise over no more than two intentional desktop lines, with one gold phrase.",
+        "section": "typography"
+      },
+      {
+        "name": "The Image-First Depth Rule",
+        "body": "Use the layered wave artwork and tonal contrast before adding a container or shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use the attached original homepage PNG as the primary composition reference for hero work.",
+      "Do preserve the wave's navy depth, luminous network, and gold contour.",
+      "Do place practical human and organisational outcomes immediately after expressive technology imagery.",
+      "Do maintain semantic structure, keyboard access, visible focus, contrast, responsive layouts, and reduced motion."
+    ],
+    "donts": [
+      "Don't resemble a generic AI startup.",
+      "Don't use neon technology spectacle, interchangeable SaaS layouts, or abstract futurism without substance.",
+      "Don't fade the signature wave into a generic pale technology texture.",
+      "Don't use gradient text, nested cards, or repeated tracked eyebrows.",
+      "Don't add new colored side-stripe borders to cards or callouts."
+    ]
+  }
+}
