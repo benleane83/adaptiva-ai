@@ -592,6 +592,7 @@ p {
 }
 
 .hero__content > p:not(.hero-home__eyebrow) {
+  hyphens: auto;
   text-align: justify;
 }
 
