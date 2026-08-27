@@ -519,17 +519,17 @@ p {
 
 .hero--home {
   min-height: clamp(39rem, 73vh, 48rem);
-  background-color: #f1f4f8;
-  background-image: url("../images/adaptiva-wave-bg-1.png");
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #ffffff;
 }
 
 .hero--home::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  left: 50%;
+  width: min(80rem, calc(100% - 2rem));
+  border-radius: var(--radius-lg);
   background:
     linear-gradient(
       90deg,
@@ -539,15 +539,22 @@ p {
       rgba(255, 255, 255, 0.22) 48%,
       rgba(255, 255, 255, 0.04) 54%,
       rgba(255, 255, 255, 0.00) 58%
-    );
+    ),
+    url("../images/adaptiva-wave-bg-1.png") center / cover no-repeat;
+  transform: translateX(-50%);
 }
 
 .hero--home::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  left: 50%;
+  width: min(80rem, calc(100% - 2rem));
+  border-radius: var(--radius-lg);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.60) 100%);
   pointer-events: none;
+  transform: translateX(-50%);
 }
 
 .hero__content,
@@ -582,6 +589,10 @@ p {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.hero__content > p:not(.hero-home__eyebrow) {
+  text-align: justify;
 }
 
 .hero-divider {
@@ -770,7 +781,8 @@ p {
   font-weight: 600;
 }
 
-.help-card__header p:last-child {
+.help-card__description {
+  margin: 1rem 0 0;
   font-size: 0.9rem;
 }
 
@@ -1609,19 +1621,6 @@ p {
 }
 
 @media (min-width: 1400px) {
-  .hero--home::before {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(255, 255, 255, 0.88) 22%,
-        rgba(255, 255, 255, 0.60) 36%,
-        rgba(255, 255, 255, 0.22) 48%,
-        rgba(255, 255, 255, 0.04) 54%,
-        rgba(255, 255, 255, 0.00) 58%
-      );
-  }
-
   .hero-home__layout {
     gap: 9rem;
   }
@@ -1644,18 +1643,15 @@ p {
     display: inline-flex;
   }
 
-  .hero--home {
-    background-position: center center;
-    background-size: cover;
-  }
-
   .hero--home::before {
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.98) 0%,
-      rgba(255, 255, 255, 0.9) 52%,
-      rgba(255, 255, 255, 0.34) 100%
-    );
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.9) 52%,
+        rgba(255, 255, 255, 0.34) 100%
+      ),
+      url("../images/adaptiva-wave-bg-1.png") center / cover no-repeat;
   }
 
   .site-nav {
@@ -1792,7 +1788,14 @@ p {
 
   .hero--home {
     min-height: auto;
-    background-size: cover;
+  }
+
+  .hero--home::before,
+  .hero--home::after {
+    top: 0.75rem;
+    bottom: 0.75rem;
+    width: calc(100% - 1rem);
+    border-radius: var(--radius-md);
   }
 
   .hero-home__highlights {
