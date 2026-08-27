@@ -623,12 +623,7 @@ p {
   justify-content: center;
   width: 3rem;
   height: 3rem;
-}
-
-.service-icon--copilot {
-  border-radius: 35% 55% 38% 55%;
-  background: conic-gradient(from 205deg, #ef4f3f, #f2bd18, #20b46d, #138ee9, #6238d0, #ef4f3f);
-  transform: rotate(-8deg);
+  object-fit: contain;
 }
 
 .service-icon--strategy {
@@ -637,15 +632,6 @@ p {
   color: var(--color-navy);
   font-size: 1.8rem;
   font-weight: 700;
-}
-
-.service-icon--heygen {
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at center, #ffffff 0 13%, transparent 14%),
-    conic-gradient(from 45deg, #ee66dc, #60e9ee, #68e893, #e9f082, #ee66dc);
-  box-shadow: 0 0 0 1px rgba(13, 27, 42, 0.16);
 }
 
 .hero-highlight--list {
