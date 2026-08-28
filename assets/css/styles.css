@@ -720,6 +720,7 @@ p {
 }
 
 .help-section {
+  padding-top: clamp(2.5rem, 4vw, 4rem);
   padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
