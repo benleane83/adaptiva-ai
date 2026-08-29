@@ -1627,6 +1627,270 @@ p {
   border: 0;
 }
 
+.heygen-hero {
+  padding-bottom: 1rem;
+}
+
+.heygen-hero__panel {
+  min-height: clamp(18rem, 30vw, 24rem);
+  padding: clamp(2.25rem, 5vw, 4rem);
+  color: #ffffff;
+  background:
+    linear-gradient(90deg, rgba(2, 24, 45, 0.98) 0%, rgba(4, 30, 54, 0.9) 53%, rgba(5, 27, 47, 0.28) 100%),
+    url("../images/heygen/hero-wave.png") center 62% / cover no-repeat;
+  box-shadow: 0 18px 44px rgba(8, 27, 58, 0.16);
+}
+
+.heygen-hero__panel h1 {
+  max-width: 54rem;
+  color: #ffffff;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+}
+
+.heygen-hero__panel .lede {
+  max-width: 39rem;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.94);
+  text-align: left;
+}
+
+.heygen-hero__eyebrow {
+  margin: 0 0 1rem;
+  color: #f0b74e;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.heygen-hero__eyebrow span {
+  margin-right: 0.5rem;
+  font-size: 1.15rem;
+}
+
+.heygen-content {
+  padding: 0.25rem 0 clamp(4rem, 7vw, 6rem);
+}
+
+.heygen-content .container {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.heygen-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 28px rgba(13, 27, 42, 0.06);
+}
+
+.heygen-block--video {
+  grid-template-columns: minmax(17rem, 0.78fr) minmax(0, 1.22fr);
+}
+
+.heygen-block__body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.heygen-block__heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.heygen-block__heading h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.heygen-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 3.3rem;
+  height: 3.3rem;
+  border: 1.5px solid var(--color-gold-dark);
+  border-radius: 50%;
+  color: var(--color-gold-dark);
+}
+
+.heygen-icon svg {
+  width: 2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.heygen-block__columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(12rem, 0.85fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.heygen-copy {
+  padding-left: 4.3rem;
+}
+
+.heygen-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.heygen-intro {
+  color: var(--color-navy);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.heygen-checklist {
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0 0 0 clamp(1.25rem, 2.5vw, 2rem);
+  border-left: 1px solid rgba(201, 154, 75, 0.45);
+  list-style: none;
+}
+
+.heygen-checklist li {
+  position: relative;
+  padding-left: 1.8rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.heygen-checklist li::before {
+  position: absolute;
+  top: 0.08rem;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+  color: var(--color-gold-dark);
+  content: "✓";
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.heygen-audience {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: auto 0 0;
+  padding: 1.15rem 0 0 1.2rem;
+  border-top: 1px solid rgba(201, 154, 75, 0.32);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.heygen-audience__icon {
+  flex: 0 0 auto;
+  color: var(--color-gold-dark);
+  font-size: 1.35rem;
+  letter-spacing: -0.4rem;
+}
+
+.heygen-audience strong {
+  color: var(--color-gold-dark);
+}
+
+.heygen-block__media {
+  min-height: 23rem;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-soft);
+}
+
+.heygen-block__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heygen-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.heygen-feature {
+  position: relative;
+  min-width: 0;
+  min-height: 24rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(13, 27, 42, 0.12);
+  border-radius: var(--radius-sm);
+  background: var(--color-navy);
+  box-shadow: var(--shadow-card);
+}
+
+.heygen-feature img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heygen-feature figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  min-height: 5.5rem;
+  place-items: center;
+  padding: 1.5rem 0.5rem 0.7rem;
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(8, 27, 58, 0.84), var(--color-navy));
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.heygen-feature figcaption span {
+  position: absolute;
+  top: -1.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-gold);
+  font-size: 1.15rem;
+}
+
+.heygen-audience--cta {
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.heygen-audience--cta p {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.heygen-audience--cta .button {
+  flex: 0 0 auto;
+}
+
 @media (min-width: 1400px) {
   .hero-home__layout {
     gap: 9rem;
@@ -1646,6 +1910,16 @@ p {
 }
 
 @media (max-width: 920px) {
+  .heygen-block,
+  .heygen-block--video {
+    grid-template-columns: 1fr;
+  }
+
+  .heygen-block__media {
+    min-height: 26rem;
+    order: 2;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
@@ -1780,6 +2054,63 @@ p {
 }
 
 @media (max-width: 680px) {
+  .heygen-hero__panel {
+    min-height: 24rem;
+    background:
+      linear-gradient(90deg, rgba(2, 24, 45, 0.97), rgba(4, 30, 54, 0.7)),
+      url("../images/heygen/hero-wave.png") 62% center / cover no-repeat;
+  }
+
+  .heygen-block {
+    padding: 1.25rem;
+  }
+
+  .heygen-block__heading h2 {
+    font-size: 1.75rem;
+  }
+
+  .heygen-block__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .heygen-copy {
+    padding-left: 0;
+  }
+
+  .heygen-checklist {
+    padding: 1.25rem 0 0;
+    border-top: 1px solid rgba(201, 154, 75, 0.45);
+    border-left: 0;
+  }
+
+  .heygen-audience,
+  .heygen-audience--cta {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    padding-left: 0;
+  }
+
+  .heygen-audience--cta .button {
+    width: 100%;
+  }
+
+  .heygen-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .heygen-feature {
+    min-height: 20rem;
+  }
+
+  .heygen-feature:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .heygen-block__media {
+    min-height: 20rem;
+  }
+
   .video-dialog,
   .contact-dialog {
     width: calc(100% - 1rem);
