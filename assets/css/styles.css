@@ -1836,7 +1836,7 @@ p {
 
   .solution-image-tile {
     min-height: clamp(30rem, 80vw, 38rem);
-    background-position: center bottom;
+    background-position: right center;
   }
 
   .solution-image-tile__content {
