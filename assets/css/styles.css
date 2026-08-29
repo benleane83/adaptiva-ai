@@ -1312,6 +1312,11 @@ p {
   color: #ffffff;
 }
 
+.cta-panel .lede {
+  max-width: min(100%, 52rem);
+  text-wrap: pretty;
+}
+
 .note {
   font-size: 0.94rem;
   color: var(--color-muted);
