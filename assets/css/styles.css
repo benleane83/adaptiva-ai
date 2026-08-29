@@ -703,6 +703,18 @@ p {
   text-align: justify;
 }
 
+.section-hero--navy-gradient .page-hero__panel {
+  border-color: rgba(212, 175, 106, 0.34);
+  background:
+    radial-gradient(circle at 92% 110%, rgba(212, 175, 106, 0.32) 0%, rgba(212, 175, 106, 0) 48%),
+    linear-gradient(135deg, var(--color-navy-strong) 0%, var(--color-navy) 66%, var(--color-blue-mid) 100%);
+}
+
+.section-hero--navy-gradient .page-hero__panel h1,
+.section-hero--navy-gradient .page-hero__panel .lede {
+  color: #ffffff;
+}
+
 .section {
   padding: clamp(4rem, 6vw, 5.5rem) 0;
 }
