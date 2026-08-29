@@ -1835,13 +1835,13 @@ p {
   }
 
   .solution-image-tile {
-    min-height: clamp(22rem, 55vw, 28rem);
+    min-height: clamp(30rem, 80vw, 38rem);
     background-position: center bottom;
   }
 
   .solution-image-tile__content {
     max-width: min(100%, 17rem);
-    padding: 0.25rem 0.2rem 0;
+    padding: 0.5rem 0.2rem 0;
   }
 
   .solution-image-tile h3 {
