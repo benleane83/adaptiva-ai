@@ -1832,7 +1832,7 @@ p {
 
 .heygen-features {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 0.75rem;
 }
 
@@ -2101,10 +2101,6 @@ p {
 
   .heygen-audience--cta .button {
     width: 100%;
-  }
-
-  .heygen-features {
-    grid-template-columns: 1fr;
   }
 
   .heygen-block__media {
