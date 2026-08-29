@@ -1833,6 +1833,9 @@ p {
 .heygen-features {
   display: grid;
   grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 32rem;
+  justify-self: center;
   gap: 0.75rem;
 }
 
