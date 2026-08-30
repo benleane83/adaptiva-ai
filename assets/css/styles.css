@@ -1689,7 +1689,7 @@ p {
 }
 
 .heygen-block--video {
-  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .heygen-block__body {
@@ -1768,9 +1768,15 @@ p {
   font-weight: 700;
 }
 
-.heygen-checklist--full {
-  margin-top: 0;
-  margin-left: 0;
+.heygen-projects {
+  grid-column: 1 / -1;
+}
+
+.heygen-checklist--projects {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 1.25rem 0 0;
+  border-top: 1px solid rgba(201, 154, 75, 0.45);
+  border-left: 0;
 }
 
 .heygen-checklist li {
@@ -1862,22 +1868,6 @@ p {
   object-fit: contain;
 }
 
-.heygen-audience--cta {
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-.heygen-audience--cta p {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin: 0;
-}
-
-.heygen-audience--cta .button {
-  flex: 0 0 auto;
-}
-
 @media (min-width: 1400px) {
   .hero-home__layout {
     gap: 9rem;
@@ -1892,6 +1882,10 @@ p {
   }
 
   .card-grid--three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .heygen-checklist--projects {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -2076,16 +2070,15 @@ p {
     border-left: 0;
   }
 
-  .heygen-audience,
-  .heygen-audience--cta {
+  .heygen-audience {
     align-items: flex-start;
     flex-direction: column;
     margin-top: 1.5rem;
     padding-left: 0;
   }
 
-  .heygen-audience--cta .button {
-    width: 100%;
+  .heygen-checklist--projects {
+    grid-template-columns: 1fr;
   }
 
   .heygen-block__media {
