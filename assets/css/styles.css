@@ -1689,7 +1689,7 @@ p {
 }
 
 .heygen-block--video {
-  grid-template-columns: minmax(17rem, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
 }
 
 .heygen-block__body {
@@ -1761,6 +1761,18 @@ p {
   list-style: none;
 }
 
+.heygen-list-label {
+  margin: 0 0 0.8rem;
+  color: var(--color-navy);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.heygen-checklist--full {
+  margin-top: 0;
+  margin-left: 0;
+}
+
 .heygen-checklist li {
   position: relative;
   padding-left: 1.8rem;
@@ -1823,67 +1835,31 @@ p {
 .heygen-block__media--contain {
   align-self: center;
   min-height: 0;
-  aspect-ratio: 750 / 589;
+  aspect-ratio: 1423 / 1105;
 }
 
 .heygen-block__media--contain img {
   object-fit: contain;
 }
 
-.heygen-features {
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-  max-width: 32rem;
-  justify-self: center;
-  gap: 0.75rem;
+.heygen-block__media--wide,
+.heygen-block__media--training {
+  align-self: center;
+  min-height: 0;
+  background: transparent;
 }
 
-.heygen-feature {
-  position: relative;
-  min-width: 0;
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid rgba(13, 27, 42, 0.12);
-  border-radius: var(--radius-sm);
-  background: var(--color-navy);
-  box-shadow: var(--shadow-card);
+.heygen-block__media--wide {
+  aspect-ratio: 544 / 262;
 }
 
-.heygen-feature img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+.heygen-block__media--training {
+  aspect-ratio: 304 / 234;
+}
+
+.heygen-block__media--wide img,
+.heygen-block__media--training img {
   object-fit: contain;
-}
-
-.heygen-feature figcaption {
-  position: relative;
-  display: grid;
-  min-height: 5.5rem;
-  place-items: center;
-  padding: 1.5rem 0.5rem 0.7rem;
-  color: #ffffff;
-  background: linear-gradient(180deg, rgba(8, 27, 58, 0.84), var(--color-navy));
-  font-size: 0.94rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.heygen-feature figcaption span {
-  position: absolute;
-  top: -1.35rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.7rem;
-  height: 2.7rem;
-  border: 1px solid var(--color-gold);
-  border-radius: 50%;
-  background: var(--color-navy);
-  color: var(--color-gold);
-  font-size: 1.15rem;
 }
 
 .heygen-audience--cta {
@@ -1929,6 +1905,12 @@ p {
   .heygen-block__media {
     min-height: 26rem;
     order: 2;
+  }
+
+  .heygen-block__media--contain,
+  .heygen-block__media--wide,
+  .heygen-block__media--training {
+    min-height: 0;
   }
 
   .nav-toggle {
@@ -2108,6 +2090,12 @@ p {
 
   .heygen-block__media {
     min-height: 20rem;
+  }
+
+  .heygen-block__media--contain,
+  .heygen-block__media--wide,
+  .heygen-block__media--training {
+    min-height: 0;
   }
 
   .video-dialog,
