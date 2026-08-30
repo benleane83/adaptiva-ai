@@ -390,6 +390,51 @@ textarea {
 
 .hero-home__cta-row .button {
   width: 100%;
+  min-height: 3.375rem;
+  padding-block: 0.5rem;
+}
+
+.hero-video-trigger__thumbnail {
+  position: relative;
+  flex: 0 0 auto;
+  width: 2.7rem;
+  height: 2rem;
+  overflow: hidden;
+  border-radius: 0.45rem;
+  background: var(--color-navy);
+}
+
+.hero-video-trigger__thumbnail::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: rgba(8, 27, 58, 0.72);
+  transform: translate(-50%, -50%);
+  content: "";
+}
+
+.hero-video-trigger__thumbnail::before {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 0.08rem);
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-top: 0.2rem solid transparent;
+  border-bottom: 0.2rem solid transparent;
+  border-left: 0.32rem solid #ffffff;
+  transform: translate(-50%, -50%);
+  content: "";
+}
+
+.hero-video-trigger__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .video-dialog {
@@ -528,7 +573,8 @@ p {
 }
 
 .hero--home {
-  min-height: clamp(39rem, 73vh, 48rem);
+  min-height: clamp(34rem, 65vh, 42rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
   background: #ffffff;
 }
 
@@ -580,7 +626,7 @@ p {
 
 .hero-headline {
   max-width: none;
-  font-size: clamp(2.7rem, 4.6vw, 4.15rem);
+  font-size: clamp(2rem, 3.35vw, 3rem);
 }
 
 .hero-home__layout {
@@ -730,7 +776,7 @@ p {
 }
 
 .help-section {
-  padding-top: clamp(2.5rem, 4vw, 4rem);
+  padding-top: clamp(1.5rem, 2.5vw, 2.5rem);
   padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
