@@ -668,7 +668,7 @@ p {
 
 .hero-headline {
   max-width: none;
-  font-size: 3.8vw;
+  font-size: clamp(2.7rem, 4.6vw, 4.15rem);
 }
 
 .hero-home__layout {
