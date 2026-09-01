@@ -56,12 +56,10 @@ export default {
     if (!name) {
       return jsonResponse({ success: false, message: "Name is required" }, 400, origin);
     }
-    // Message is required for contact form but optional for complimentary session
-    if (!message && formId !== "complimentary_session") {
+    if (!message) {
       return jsonResponse({ success: false, message: "Message is required" }, 400, origin);
     }
-    // Provide default message for complimentary session form
-    const displayMessage = message || (formId === "complimentary_session" ? "Registered for complimentary Copilot session" : "");
+    const displayMessage = message;
 
     // Send structured internal notification (required)
     try {
@@ -149,11 +147,7 @@ async function sendInternalNotification({ fields, name, email, message, env }) {
   const notifyTo = env.NOTIFICATION_TO_EMAIL || "info@adaptivaai.com";
   const formId = String(fields.form_id || fields.formId || "contact").trim();
 
-  const subjectMap = {
-    complimentary_session: `Complimentary session from ${name}`,
-    contact: `Request for consultation from ${name}`
-  };
-  const subject = subjectMap[formId] ?? `Request for consultation from ${name}`;
+  const subject = formId === "contact" ? `Request for consultation from ${name}` : `Request for consultation from ${name}`;
 
   const emailPayload = {
     from,
@@ -191,17 +185,9 @@ async function sendAutoReply({ name, email, formId, env }) {
   const from    = env.FROM_EMAIL    || "Adaptiva AI <info@adaptivaai.com>";
   const replyTo = env.REPLY_TO_EMAIL || "info@adaptivaai.com";
 
-  let subject, html, text;
-  
-  if (formId === "complimentary_session") {
-    subject = "Thanks for registering for a complimentary Copilot intro session";
-    html = buildHtmlBodyComplimentary(name);
-    text = buildTextBodyComplimentary(name);
-  } else {
-    subject = "Thanks for contacting Adaptiva AI";
-    html = buildHtmlBodyContact(name);
-    text = buildTextBodyContact(name);
-  }
+  const subject = "Thanks for contacting Adaptiva AI";
+  const html = buildHtmlBodyContact(name);
+  const text = buildTextBodyContact(name);
 
   const emailPayload = {
     from,
@@ -228,70 +214,6 @@ async function sendAutoReply({ name, email, formId, env }) {
 }
 
 // ─── Email templates ───────────────────────────────────────────────────────────
-
-function buildHtmlBodyComplimentary(name) {
-  const safeFirstName = escapeHtml(deriveFirstName(name));
-  return `<!doctype html>
-<html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#f6f8fb;font-family:Arial,Helvetica,sans-serif;color:#1f2937;">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f6f8fb;padding:24px 12px;">
-    <tr>
-      <td align="center">
-        <table role="presentation" width="600" cellspacing="0" cellpadding="0"
-               style="max-width:600px;background:#ffffff;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
-          <tr>
-            <td style="background:#0f172a;padding:20px 24px;">
-              <span style="font-size:20px;font-weight:700;color:#ffffff;">Adaptiva AI</span>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:28px 24px 24px;">
-              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">Hello ${safeFirstName},</p>
-              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">
-                Thank you for registering your interest in a complimentary Microsoft 365 Copilot introductory session.
-                We have received your details and will be in touch once the session date is confirmed.
-              </p>
-              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">
-                For inquiries about any of our other services, please complete the
-                &ldquo;Request a Consultation&rdquo; form on our website.
-              </p>
-              <p style="margin:0 0 14px;font-size:16px;line-height:1.6;">
-                We appreciate your interest in Adaptiva AI and look forward to connecting with you.
-              </p>
-              <p style="margin:24px 0 0;font-size:14px;color:#374151;line-height:1.6;">
-                Warm regards,<br>
-                <strong>The Adaptiva AI Team</strong>
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:14px 24px;background:#f9fafb;border-top:1px solid #e5e7eb;font-size:12px;color:#9ca3af;line-height:1.5;">
-              This is an automated message from Adaptiva AI.
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>`;
-}
-
-function buildTextBodyComplimentary(name) {
-  const firstName = deriveFirstName(name);
-  return `Hello ${firstName},
-
-Thank you for registering your interest in a complimentary Microsoft 365 Copilot introductory session. We have received your details and will be in touch once the session date is confirmed.
-
-For inquiries about any of our other services, please complete the "Request a Consultation" form on our website.
-
-We appreciate your interest in Adaptiva AI and look forward to connecting with you.
-
-Warm regards,
-
-The Adaptiva AI Team`;
-}
 
 function buildHtmlBodyContact(name) {
   const safeFirstName = escapeHtml(deriveFirstName(name));
