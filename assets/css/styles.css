@@ -927,8 +927,19 @@ p {
 }
 
 .section-heading {
-  max-width: 42rem;
+  width: 100%;
+  max-width: none;
   margin-bottom: 2rem;
+}
+
+.section-heading h2 {
+  max-width: none;
+}
+
+.section-heading .lede,
+.industries-beyond p {
+  max-width: none;
+  text-align: justify;
 }
 
 .content-image {
